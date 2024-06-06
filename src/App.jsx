@@ -11,7 +11,7 @@ function App() {
     <>
       <header id="masthead" className="site-header">
         <div className="site-branding">
-          <p className="site-title">Headless WordPress App</p>
+          {/* <p className="site-title">Headless WordPress App</p> */}
         </div>
         <nav className="site-navigation">
           <ul>

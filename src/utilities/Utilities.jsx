@@ -1,10 +1,10 @@
-export const restBase = 'https://wp.bcitwebdeveloper.ca/mindset-demo/wp-json/wp/v2/'
+export const restBase = 'https://chrishoornaert.com/portfolio/wp-json/wp/v2/'
 
 export const featuredImage = ( featuredImageObject ) => {
   let imgWidth = featuredImageObject.media_details.sizes.full.width;
   let imgHeight = featuredImageObject.media_details.sizes.full.height;
   let imgURL = featuredImageObject.source_url;
-  let img = `<img src="${imgURL}" 
+  let img = `<img src="${imgURL}"
       width="${imgWidth}"
       height="${imgHeight}"
       alt="${featuredImageObject.alt_text}"

@@ -4,7 +4,9 @@ import { restBase } from '../utilities/Utilities';
 
 const Home = () => {
     const restPath = restBase + 'pages/9';
+    const optionsRestPath = restBase + 'acf/v3/options/global-buttons';
     const [restData, setRestData] = useState([]);
+    const [globalOptions, setGlobalOptions] = useState({});
     const [isLoaded, setLoadStatus] = useState(false);
 
     useEffect(() => {
@@ -25,27 +27,27 @@ const Home = () => {
         };
 
         fetchData();
-    }, [restPath]);
+    }, [restPath, optionsRestPath]);
 
     console.log(restData); // Log the entire restData object
+    console.log(globalOptions);
 
     return (
         <>
             {isLoaded ? (
                 <article id={`post-${restData.id}`}>
-                    {/* <h1>{restData.title.rendered}</h1> */}
                     <div className="entry-content">
                         <section className="home-header">
                             {restData.acf && restData.acf.home_header_image && (
                                 <img
                                     src={restData.acf.home_header_image.url}
-                                    alt={restData.acfhome_header_image.alt}
+                                    alt={restData.acf.home_header_image.alt}
                                     width="500px"
                                     height="300px"
                                 />
                             )}
                         </section>
-                        {/* <h2>{restData.acf.home_name}</h2> */}
+                        <h2>{restData.acf.home_name}</h2>
                     </div>
                 </article>
             ) : (

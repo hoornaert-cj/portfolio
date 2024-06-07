@@ -1,4 +1,4 @@
-export const restBase = 'https://chrishoornaert.com/portfolio/wp-json/wp/v2/'
+export const restBase = 'https://chrishoornaert.com/securepanel/wp-json/wp/v2/'
 
 export const featuredImage = ( featuredImageObject ) => {
   let imgWidth = featuredImageObject.media_details.sizes.full.width;

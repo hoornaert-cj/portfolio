@@ -4,9 +4,9 @@ import { restBase } from '../utilities/Utilities';
 
 const Home = () => {
     const restPath = restBase + 'pages/9';
-    const optionsRestPath = restBase + 'acf/v3/options/global-buttons';
+    // const optionsRestPath = restBase + 'acf/v3/options/global-buttons';
     const [restData, setRestData] = useState([]);
-    const [globalOptions, setGlobalOptions] = useState({});
+    // const [globalOptions, setGlobalOptions] = useState({});
     const [isLoaded, setLoadStatus] = useState(false);
 
     useEffect(() => {
@@ -27,10 +27,10 @@ const Home = () => {
         };
 
         fetchData();
-    }, [restPath, optionsRestPath]);
+    }, [restPath]);
 
     console.log(restData); // Log the entire restData object
-    console.log(globalOptions);
+    // console.log(globalOptions);
 
     return (
         <>

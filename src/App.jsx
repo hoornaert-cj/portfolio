@@ -5,6 +5,7 @@ import Posts from './templates/Posts'
 import Post from './templates/Post'
 import Services from './templates/Services'
 
+
 function App() {
 
   return (
@@ -18,7 +19,7 @@ function App() {
             <li><NavLink to='/' end>Home</NavLink></li>
             <li><NavLink to='/about'>About</NavLink></li>
             <li><NavLink to='/blog'>Blog</NavLink></li>
-            <li><NavLink to='/services'>Services</NavLink></li>
+            <li><NavLink to='/'>Services</NavLink></li>
           </ul>
         </nav>
       </header>
@@ -38,7 +39,7 @@ function App() {
             <li><Link to='/about'>About</Link></li>
           </ul>
         </nav>
-        <p className="copyright">Created for <a href="https://wp.bcitwebdeveloper.ca/" target="_blank" rel="noopener noreferrer">FWDP 3600</a>.</p>
+        <p className="copyright">Created by <a href="https://chrishoornaert.com/" target="_blank" rel="noopener noreferrer">Chris Hoornaert</a>.</p>
       </footer>
     </>
   )

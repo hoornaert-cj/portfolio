@@ -38,10 +38,10 @@ const Home = () => {
                 <article id={`post-${restData.id}`}>
                     <div className="entry-content">
                         <section className="home-header">
-                            {restData.acf && restData.acf.home_header_image && (
+                            {restData.acf && restData.acf.home_heading_image && (
                                 <img
-                                    src={restData.acf.home_header_image.url}
-                                    alt={restData.acf.home_header_image.alt}
+                                    src={restData.acf.home_heading_image.url}
+                                    alt={restData.acf.home_heading_image.alt}
                                     width="500px"
                                     height="300px"
                                 />

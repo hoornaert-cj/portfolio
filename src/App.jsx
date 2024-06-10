@@ -4,6 +4,7 @@ import About from './templates/About';
 import Projects from './templates/Projects';
 import Project from './templates/Project';
 import Skills from './templates/Skills';
+import Contact from './templates/Contact'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <li><NavLink to='/about'>About</NavLink></li>
             <li><NavLink to='/projects'>Projects</NavLink></li>
             <li><NavLink to='/skills'>Skills</NavLink></li>
+            <li><NavLink to='/contact'>Contact</NavLink></li>
           </ul>
         </nav>
       </header>
@@ -24,9 +26,10 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
-          <Route path='/skills' element={<Skills />} />
           <Route path='/projects' element={<Projects />} />
           <Route path='/project/:id' element={<Project />} />
+          <Route path='/skills' element={<Skills />} />
+          <Route path='/contact' element={<Contact />} />
         </Routes>
       </main>
       <footer>

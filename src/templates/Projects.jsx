@@ -32,6 +32,7 @@ const Projects = () => {
     <>
       {isLoaded ? (
         <section id="introduction" className="projects-wrapper">
+          <h1>{restData.title.rendered}</h1>
           {restData.acf && restData.acf.projects_heading_image && (
             <img
               src={restData.acf.projects_heading_image.url}

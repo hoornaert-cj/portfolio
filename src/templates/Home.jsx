@@ -35,21 +35,22 @@ const Home = () => {
     return (
         <>
             {isLoaded ? (
-                <article id={`post-${restData.id}`}>
-                    <div className="entry-content">
-                        <section className="home-header">
-                            {restData.acf && restData.acf.home_heading_image && (
-                                <img
-                                    src={restData.acf.home_heading_image.url}
-                                    alt={restData.acf.home_heading_image.alt}
-                                    width="500px"
-                                    height="300px"
-                                />
-                            )}
-                        </section>
-                        <h2>{restData.acf.home_name}</h2>
-                    </div>
-                </article>
+                 <article id={`post-${restData.id}`}>
+                 <div className="entry-content">
+                     <section className="home-header">
+                         {restData.acf && restData.acf.home_heading_image && (
+                             <img
+                                 src={restData.acf.home_heading_image.url}
+                                 alt={restData.acf.home_heading_image.alt}
+                                 width="500px"
+                                 height="300px"
+                             />
+                         )}
+                         <h2>{restData.acf.home_name}</h2>
+                         <p className="home-intro">{restData.acf.home_intro}</p>
+                     </section>
+                 </div>
+             </article>
             ) : (
                 <Loading />
             )}

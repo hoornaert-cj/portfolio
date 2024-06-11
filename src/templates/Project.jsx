@@ -9,6 +9,8 @@ const Project = () => {
   const [projectData, setProjectData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
+  const [projectAnimation, setProjectAnimation] = useState(null);
+
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -19,16 +21,31 @@ const Project = () => {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
+        console.log('Fetched project data:', data); // Log the fetched data
+
+        // Fetch media details if project_animation is present
+        if (restPath.acf && restPath.acf.animation_project) {
+          const mediaResponse = await fetch(`https://chrishoornaert.com/securepanel/wp-json/wp/v2/media/${data.acf.animation_project}`);
+          if (!mediaResponse.ok) {
+            throw new Error(`HTTP error! Status: ${mediaResponse.status}`);
+          }
+          const mediaData = await mediaResponse.json();
+          console.log('Fetched media data:', mediaData); // Log the fetched media data
+          setProjectAnimation(mediaData); // Set the projectAnimation state
+        }
+
         setProjectData(data);
         setIsLoaded(true);
       } catch (error) {
         console.error('Error fetching project:', error);
         setError(error.message);
-        setIsLoaded(true); // Set to true to display error message
+        setIsLoaded(true);
       }
     };
     fetchProject();
   }, [restPath]);
+
+
 
   if (!isLoaded) {
     return <Loading />;
@@ -38,15 +55,17 @@ const Project = () => {
     return <div className="error-message">Error fetching project: {error}</div>;
   }
 
+  console.log('Project Animation:', projectAnimation);
+
   return (
     <div className="project-details">
       <h1>{projectData.acf.indv_project_heading}</h1>
-      {projectData.acf.project_animation && (
-        <img
-          src={projectData.acf.project_animation}
-          alt={projectData.acf.project_animation_alt || "Project animation"}
-        />
-      )}
+      {projectAnimation && (
+  <img
+    src={projectAnimation.source_url}
+    alt={projectData.acf.project_animation_alt || "Project animation"}
+  />
+)}
       {projectData.acf.description_repeater && (
         <div className="description-repeater">
           <h3>{projectData.acf.indv_project_heading}</h3>

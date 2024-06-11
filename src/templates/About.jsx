@@ -10,7 +10,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const About = () => {
     const restPath = restBase + 'pages/63';
-    const [acfData, setAcfData] = useState({});
+    const [restData, setRestData] = useState({});
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const About = () => {
                 const response = await fetch(restPath);
                 if (response.ok) {
                     const data = await response.json();
-                    setAcfData(data.acf);
+                    setRestData(data.acf);
                     setIsLoaded(true);
                 } else {
                     setIsLoaded(false);
@@ -33,16 +33,19 @@ const About = () => {
         fetchData();
     }, [restPath]);
 
-    console.log(acfData); // Log the entire acfData object
-
     return (
         <>
             {isLoaded ? (
                 <div>
-                    <header>
-                        <img src={acfData.avatar_image} alt="Your Avatar" />
-                        <div dangerouslySetInnerHTML={{ __html: acfData.about_intro }}></div>
-                    </header>
+                    <section className="about-intro">
+                    {restData.acf && restData.avatar_image && (
+                            <img
+                                src={restData.avatar_image.url}
+                                alt={restData.avatar_image.alt}
+                            />
+                        )}
+                        <div dangerouslySetInnerHTML={{ __html: restData.about_intro }}></div>
+                    </section>
                     <section>
                         <Accordion>
                             <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
@@ -51,7 +54,7 @@ const About = () => {
                             <AccordionDetails>
                                 <Typography component="div">
                                     <ul>
-                                        {acfData.interesting_facts
+                                        {restData.interesting_facts
                                             .filter(fact => fact.facts_type === 'Personal')
                                             .map((fact, index) => (
                                                 <li key={index}>{fact.fact_description}</li>
@@ -67,7 +70,7 @@ const About = () => {
                             <AccordionDetails>
                                 <Typography component="div">
                                     <ul>
-                                        {acfData.interesting_facts
+                                        {restData.interesting_facts
                                             .filter(fact => fact.facts_type === 'Professional')
                                             .map((fact, index) => (
                                                 <li key={index}>{fact.fact_description}</li>
@@ -78,14 +81,14 @@ const About = () => {
                         </Accordion>
                     </section>
                     <section>
-                        <h2>{acfData.about_map_title}</h2>
+                        <h2>{restData.about_map_title}</h2>
                         <Map
                             center={{
-                                latitude: parseFloat(acfData.about_map_latitude),
-                                longitude: parseFloat(acfData.about_map_longitude)
+                                latitude: parseFloat(restData.about_map_latitude),
+                                longitude: parseFloat(restData.about_map_longitude)
                             }}
-                            zoom={parseInt(acfData.about_map_zoom)}
-                            markers={acfData.about_map_markers.map(marker => ({
+                            zoom={parseInt(restData.about_map_zoom)}
+                            markers={restData.about_map_markers.map(marker => ({
                                 latitude: parseFloat(marker.marker_latitude),
                                 longitude: parseFloat(marker.marker_longitude),
                                 description: marker.marker_description,

@@ -1,7 +1,9 @@
+// pages/Project.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../utilities/Loading';
 import { restBase } from '../utilities/Utilities';
+import GlobalButtons from '../components/GlobalButtons';
 
 const Project = () => {
   const { id } = useParams();
@@ -51,16 +53,37 @@ const Project = () => {
           style={{ width: "400px" }}
         />
       )}
-{projectData.acf.description_repeater && (
-  <div className="description-repeater">
-    {projectData.acf.description_repeater.map((desc, index) => (
-      <div key={index}>
-        <h3>{desc.indv_project_type}</h3>
-        <div dangerouslySetInnerHTML={{ __html: desc.indv_project_description }} />
-      </div>
-    ))}
-  </div>
-)}
+      {projectData.acf.description_repeater && (
+        <div className="description-repeater">
+          {projectData.acf.description_repeater.map((desc, index) => (
+            <div key={index}>
+              <h3>{desc.indv_project_type}</h3>
+              <div dangerouslySetInnerHTML={{ __html: desc.indv_project_description }} />
+              {/* Render buttons */}
+              {desc.indv_project_live_link_label && desc.indv_project_live_link_url && (
+                <a
+                  href={desc.indv_project_live_link_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button"
+                >
+                  {desc.indv_project_live_link_label}
+                </a>
+              )}
+              {desc.indv_project_github_label && desc.indv_project_github_url && (
+                <a
+                  href={desc.indv_project_github_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="button"
+                >
+                  {desc.indv_project_github_label}
+                </a>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
       {projectData.acf.tools_used_repeater && (
         <div className="tools-used-repeater">
           {projectData.acf.tools_used_repeater.map((tool, index) => (
@@ -80,6 +103,9 @@ const Project = () => {
             </div>
           ))}
         </div>
+      )}
+      {projectData.acf.global_buttons && (
+        <GlobalButtons buttons={projectData.acf.global_buttons} />
       )}
     </div>
   );

@@ -323,7 +323,7 @@ html {
 }
 
 body {
-	background: #4a4a4a; /* Fallback for when there is no custom background color defined. */
+	background: #4a4a4a;
 	min-height: 100vh
 }
 
@@ -618,3 +618,14 @@ footer p {
 	height: 300px;
 	object-fit: cover;
 }
+
+.gradient-background {
+    background-image: linear-gradient(-20deg, rgba(0, 117, 191, 1) 10%, rgba(19, 124, 191, 1) 20%, rgba(38, 132, 191, 1) 30%, rgba(57, 139, 191, 1) 40%, rgba(76, 147, 191, 1) 50%, rgba(96, 154, 191, 1) 60%, rgba(115, 161, 191, 1) 70%, rgba(134, 169, 191, 1) 80%, rgba(153, 176, 191, 1) 90%, rgba(172, 184, 191, 1) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* Ensure it is behind the Three.js canvas */
+}
+

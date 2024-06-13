@@ -19,7 +19,9 @@
     "leaflet": "^1.9.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "react-tabs": "^6.0.2",
+    "three": "^0.165.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.74",

@@ -1,9 +1,10 @@
-// pages/Project.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../utilities/Loading';
 import { restBase } from '../utilities/Utilities';
 import GlobalButtons from '../components/GlobalButtons';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 const Project = () => {
   const { id } = useParams();
@@ -48,62 +49,73 @@ const Project = () => {
       {projectData.acf.project_animation && (
         <img
           src={projectData.acf.project_animation.url}
-          alt={projectData.acf.project_animation.alt || "Project animation"}
+          alt={projectData.acf.project_animation.alt || 'Project animation'}
           autoPlay
-          style={{ width: "400px" }}
+          style={{ width: '400px' }}
         />
       )}
-      {projectData.acf.description_repeater && (
-        <div className="description-repeater">
-          {projectData.acf.description_repeater.map((desc, index) => (
-            <div key={index}>
-              <h3>{desc.indv_project_type}</h3>
-              <div dangerouslySetInnerHTML={{ __html: desc.indv_project_description }} />
-              {/* Render buttons */}
-              {desc.indv_project_live_link_label && desc.indv_project_live_link_url && (
-                <a
-                  href={desc.indv_project_live_link_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button"
-                >
-                  {desc.indv_project_live_link_label}
-                </a>
-              )}
-              {desc.indv_project_github_label && desc.indv_project_github_url && (
-                <a
-                  href={desc.indv_project_github_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button"
-                >
-                  {desc.indv_project_github_label}
-                </a>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-      {projectData.acf.tools_used_repeater && (
-        <div className="tools-used-repeater">
-          {projectData.acf.tools_used_repeater.map((tool, index) => (
-            <div key={index}>
-              <h4>{tool.indv_tools_heading}</h4>
-              <div dangerouslySetInnerHTML={{ __html: tool.indv_tools_description }} />
-            </div>
-          ))}
-        </div>
-      )}
-      {projectData.acf.reflection_repeater && (
-        <div className="reflection-repeater">
-          {projectData.acf.reflection_repeater.map((reflection, index) => (
-            <div key={index}>
-              <h3>{reflection.indv_reflection_heading}</h3>
-              <div dangerouslySetInnerHTML={{ __html: reflection.indv_reflection }} />
-            </div>
-          ))}
-        </div>
-      )}
+
+      <Tabs>
+        <TabList>
+          <Tab>Description</Tab>
+          <Tab>Tools Used</Tab>
+          <Tab>Reflection</Tab>
+        </TabList>
+
+        <TabPanel>
+          <section className="description-repeater">
+            {projectData.acf.description_repeater.map((desc, index) => (
+              <div key={index}>
+                <h3>{desc.indv_project_type}</h3>
+                <div dangerouslySetInnerHTML={{ __html: desc.indv_project_description }} />
+                {desc.indv_project_live_link_label && desc.indv_project_live_link_url && (
+                  <a
+                    href={desc.indv_project_live_link_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button"
+                  >
+                    {desc.indv_project_live_link_label}
+                  </a>
+                )}
+                {desc.indv_project_github_label && desc.indv_project_github_url && (
+                  <a
+                    href={desc.indv_project_github_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="button"
+                  >
+                    {desc.indv_project_github_label}
+                  </a>
+                )}
+              </div>
+            ))}
+          </section>
+        </TabPanel>
+
+        <TabPanel>
+          <section className="tools-used-repeater">
+            {projectData.acf.tools_used_repeater.map((tool, index) => (
+              <div key={index}>
+                <h4>{tool.indv_tools_heading}</h4>
+                <div dangerouslySetInnerHTML={{ __html: tool.indv_tools_description }} />
+              </div>
+            ))}
+          </section>
+        </TabPanel>
+
+        <TabPanel>
+          <section className="reflection-repeater">
+            {projectData.acf.reflection_repeater.map((reflection, index) => (
+              <div key={index}>
+                <h3>{reflection.indv_reflection_heading}</h3>
+                <div dangerouslySetInnerHTML={{ __html: reflection.indv_reflection }} />
+              </div>
+            ))}
+          </section>
+        </TabPanel>
+      </Tabs>
+
       {projectData.acf.global_buttons && (
         <GlobalButtons buttons={projectData.acf.global_buttons} />
       )}

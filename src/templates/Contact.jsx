@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Loading from '../utilities/Loading';
 import { restBase } from '../utilities/Utilities';
+import GlobalButtons from '../components/GlobalButtons';
 
 const Contact = () => {
   const restPath = restBase + 'pages/86';
@@ -46,6 +47,11 @@ const Contact = () => {
             </a>
           ))}
         </section>
+        <section className="contact-btn-call-to-action">
+            {restData.acf.global_buttons && (
+            <GlobalButtons buttons={restData.acf.global_buttons} />
+          )}
+          </section>
       </section>
       ) : (
         <Loading />

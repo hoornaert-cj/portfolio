@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Loading from '../utilities/Loading';
 import { restBase } from '../utilities/Utilities';
+import GlobalButtons from '../components/GlobalButtons';
 
 const Services = () => {
   const restPath = restBase + 'pages/81';
@@ -63,6 +64,11 @@ const Services = () => {
                 )}
               </div>
             ))}
+          </section>
+          <section className="skills-btn-call-to-action">
+            {restData.acf.global_buttons && (
+            <GlobalButtons buttons={restData.acf.global_buttons} />
+          )}
           </section>
         </section>
       ) : (

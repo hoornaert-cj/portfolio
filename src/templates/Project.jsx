@@ -88,7 +88,7 @@ const Project = () => {
         <div className="tools-used-repeater">
           {projectData.acf.tools_used_repeater.map((tool, index) => (
             <div key={index}>
-              <h3>{tool.indv_tools_heading}</h3>
+              <h4>{tool.indv_tools_heading}</h4>
               <div dangerouslySetInnerHTML={{ __html: tool.indv_tools_description }} />
             </div>
           ))}
@@ -98,7 +98,7 @@ const Project = () => {
         <div className="reflection-repeater">
           {projectData.acf.reflection_repeater.map((reflection, index) => (
             <div key={index}>
-              <h2>{reflection.indv_reflection_heading}</h2>
+              <h3>{reflection.indv_reflection_heading}</h3>
               <div dangerouslySetInnerHTML={{ __html: reflection.indv_reflection }} />
             </div>
           ))}

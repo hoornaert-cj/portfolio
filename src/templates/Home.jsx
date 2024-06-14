@@ -3,7 +3,8 @@ import Loading from '../utilities/Loading';
 import { restBase } from '../utilities/Utilities';
 import GlobalButtons from '../components/GlobalButtons';
 import BackgroundAnimation from '../js/BackgroundAnimation'
-import '../sass/pages/_home.scss';
+// import '../sass/pages/_home.scss';
+import '../sass/components/_background-animation.scss';
 
 const Home = () => {
     const restPath = `${restBase}pages/9/?acf_format=standard`;

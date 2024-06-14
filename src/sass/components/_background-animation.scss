@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body {
+    background-color: #021027;
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    mask-image: radial-gradient(
+      white 0%,
+      white 30%,
+      transparent 80%,
+      transparent
+    );
+  }
+
+  .circle-container {
+    position: absolute;
+    transform: translateY(-10vh);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  .circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    background-image: radial-gradient(
+      hsl(180, 100%, 80%),
+      hsl(180, 100%, 80%) 10%,
+      hsla(180, 100%, 80%, 0) 56%
+    );
+    animation: fadein-frames 200ms infinite, scale-frames 2s infinite;
+  }
+
+  @keyframes fade-frames {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-frames {
+    0% {
+      transform: scale3d(0.4, 0.4, 1);
+    }
+    50% {
+      transform: scale3d(2.2, 2.2, 1);
+    }
+    100% {
+      transform: scale3d(0.4, 0.4, 1);
+    }
+  }
+
+  /* Add more CSS as needed */

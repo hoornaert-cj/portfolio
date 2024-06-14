@@ -1,0 +1,18 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  // Define a mixin for responsive font sizes
+  @mixin responsive-font($size) {
+    font-size: $size;
+
+    @media (max-width: 768px) {
+      font-size: $size * 0.8;
+    }
+
+    @media (max-width: 480px) {
+      font-size: $size * 0.6;
+    }
+  }

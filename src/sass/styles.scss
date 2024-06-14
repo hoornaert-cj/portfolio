@@ -1,5 +1,31 @@
-@import 'pages/home';
+//font imports
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap'); //Cinzel font for H1 and H2
 
-// Import navigation styles
-@import 'components/navigation';
+
+@font-face {
+    font-family: 'Cinzel';
+    src: url('../fonts/Cinzel/Cinzel-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+// Import variables and mixins
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+// Import base styles
+// @import 'base/reset';
 @import 'base/typography';
+
+// Import components
+// @import 'components/buttons';
+@import 'components/navigation';
+@import 'components/background-animation';
+
+// Import layouts
+// @import 'layouts/header';
+// @import 'layouts/footer';
+
+// Import page-specific styles
+@import 'pages/home';
+// @import 'pages/about';

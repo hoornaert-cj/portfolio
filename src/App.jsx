@@ -5,7 +5,8 @@ import Projects from './templates/Projects';
 import Project from './templates/Project';
 import Skills from './templates/Skills';
 import Contact from './templates/Contact';
-import './sass/abstracts/_mixins.scss';  // Corrected import statement
+import './sass/abstracts/_mixins.scss';
+
 
 function App() {
   return (

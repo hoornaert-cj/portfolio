@@ -619,13 +619,13 @@ footer p {
 	object-fit: cover;
 }
 
-.gradient-background {
+/* .gradient-background {
     background-image: linear-gradient(45deg, #CCE6F4 0%, #053a4c 100%);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2; /* Ensure it is behind the Three.js canvas */
-}
+    z-index: -2;
+} */
 

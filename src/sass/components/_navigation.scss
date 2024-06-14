@@ -1,0 +1,36 @@
+.site-header {
+    /* Apply styling to the entire header if needed */
+}
+
+.site-branding {
+    /* Styles for site branding */
+}
+
+.site-navigation {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center; /* Align items horizontally */
+
+        li {
+            margin-right: 1rem; /* Adjust spacing between items */
+
+            a {
+                color: #000; /* Default text color */
+                text-decoration: none; /* Remove underline */
+                padding: 0.5rem 1rem; /* Padding around links */
+                display: inline-block; /* Make links behave as blocks */
+                transition: all 0.3s ease; /* Smooth transition for hover effects */
+
+                &:hover,
+                &.active {
+                    color: #00f; /* Text color on hover or when active */
+                    /* Additional styles for hover or active states */
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

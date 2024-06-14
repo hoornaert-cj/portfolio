@@ -1,0 +1,29 @@
+// src/sass/base/_typography.scss
+
+// Heading styles
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif; // Example font family
+    font-weight: 600; // Example font weight
+    line-height: 1.2; // Example line height
+    margin-bottom: 1rem; // Example margin bottom
+  }
+
+  h1 {
+    font-size: 2.5rem; // Example font size for h1
+  }
+
+  h2 {
+    font-size: 2rem; // Example font size for h2
+  }
+
+  h3 {
+    font-size: 1.75rem; // Example font size for h3
+  }
+
+  // Paragraph styles
+  p {
+    font-family: 'Open Sans', sans-serif; // Example font family
+    font-size: 1rem; // Example font size for paragraphs
+    line-height: 1.5; // Example line height
+    margin-bottom: 1.5rem; // Example margin bottom
+  }

@@ -1,27 +1,31 @@
 const { src, dest, watch, series } = require('gulp');
+const autoprefixer = require('gulp-autoprefixer');
 const sass = require('gulp-sass')(require('sass'));
-const browserSync = require('browser-sync').create();
+const sourcemaps = require('gulp-sourcemaps');
+const cleanCSS = require('gulp-clean-css');
+
+
+const paths = {
+  styles: {
+    src: 'src/sass/**/*.scss',
+    dest: 'src/styles'
+  }
+};
 
 function style() {
-  return src('./src/sass/**/*.scss')
+  return src(paths.styles.src)
+    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(dest('./src/css'))
-    .pipe(browserSync.stream());
+    .pipe(autoprefixer())
+    .pipe(cleanCSS())
+    .pipe(sourcemaps.write('.'))
+    .pipe(dest(paths.styles.dest));
 }
 
-function serve() {
-  browserSync.init({
-    server: {
-      baseDir: './src',
-    },
-    port: 3000
-  });
-
-  watch('./src/sass/**/*.scss', style);
-  watch('./src/*.html').on('change', browserSync.reload);
-  watch('./src/js/**/*.js').on('change', browserSync.reload);
+function watchTask() {
+  watch(paths.styles.src, style);
 }
 
 exports.style = style;
-exports.serve = serve;
-exports.default = series(style, serve);
+exports.watch = watchTask;
+exports.default = series(style, watchTask);

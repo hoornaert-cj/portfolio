@@ -1,5 +1,5 @@
 .site-header {
-    background-color: rgba(5, 58, 76, 0.6);
+    background-color: rgba(5, 58, 76, 0.7);
     color: white;
     padding: 1.25rem 2rem;
 }
@@ -14,23 +14,23 @@
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: center; /* Align items horizontally */
+        justify-content: center;
 
         li {
-            margin-right: 1rem; /* Adjust spacing between items */
+            margin-right: 1rem;
 
             a {
-                color: #000; /* Default text color */
-                text-decoration: none; /* Remove underline */
-                padding: 0.5rem 1rem; /* Padding around links */
-                display: inline-block; /* Make links behave as blocks */
-                transition: all 0.3s ease; /* Smooth transition for hover effects */
+                color: $link-color;
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                display: inline-block;
+                font-size: 1.2rem;
 
                 &:hover,
                 &.active {
-                    color: #00f; /* Text color on hover or when active */
-                    /* Additional styles for hover or active states */
-                    text-decoration: underline;
+                    color: #CCE6F4;
+                    transform: scale(0.9);
+                    transition: color 0.5s ease;
                 }
             }
         }

@@ -1,7 +1,11 @@
 // Define color variables
-$primary-color: #3498db;
+$primary-color: #053A4C;
 $secondary-color: #CCE6F4;
 $hover-color: #2980b9;
+$link-color: #fff ;
+$p_white-text: #fff;
+$button-color: #31081F;
+
 $link-font-family: 'Helvetica, Arial, sans-serif';
 $link-font-size: 1rem;
 $link-font-weight: 400;
@@ -11,4 +15,7 @@ $link-hover-text-decoration: underline;
 
 //Define Fonts
 $font-family-h1: 'Cinzel', serif;
+
+//Define Margins:
+$mobile-marg-lr: 0.625rem;
 

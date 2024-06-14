@@ -1,0 +1,32 @@
+.button {
+    background-color: $button-color;
+    color: white; // Adjust the text color as needed
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    margin: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: darken($button-color, 10%);
+    }
+
+    &:active {
+        background-color: darken($button-color, 20%);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba($button-color, 0.5);
+    }
+
+    &.primary {
+        background-color: lighten($button-color, 10%);
+    }
+
+    &.secondary {
+        background-color: lighten($button-color, 20%);
+    }
+}

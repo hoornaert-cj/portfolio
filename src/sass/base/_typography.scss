@@ -36,7 +36,8 @@ a {
 
   font-size: $link-font-size;
   font-weight: $link-font-weight;
-  color: $primary-color;
+  color: $link-color;
+  text-transform: uppercase;
   text-decoration: none;
   transition: color 0.3s ease;
 
@@ -46,19 +47,5 @@ a {
 
   &:hover {
     color: $hover-color;
-  }
-
-  // Underline animation on hover
-  &::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: $primary-color;
-    transition: width 0.3s;
-  }
-
-  &:hover::after {
-    width: 100%;
   }
 }

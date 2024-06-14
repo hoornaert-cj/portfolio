@@ -16,11 +16,14 @@
 // Import base styles
 // @import 'base/reset';
 @import 'base/typography';
+@import 'base/elements/body';
 
 // Import components
 // @import 'components/buttons';
 @import 'components/navigation';
+@import './components/buttons';
 
+@import 'generic/normalize';
 // Import layouts
 // @import 'layouts/header';
 // @import 'layouts/footer';

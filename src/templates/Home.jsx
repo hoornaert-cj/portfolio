@@ -3,7 +3,6 @@ import Loading from '../utilities/Loading';
 import { restBase } from '../utilities/Utilities';
 import GlobalButtons from '../components/GlobalButtons';
 import BackgroundAnimation from '../js/BackgroundAnimation'
-// import '../index.css';
 import '../sass/pages/_home.scss';
 
 const Home = () => {

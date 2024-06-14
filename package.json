@@ -5,11 +5,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"gulp watch\"",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "style": "gulp style"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -17,8 +16,8 @@
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.19",
     "axios": "^1.7.2",
-    "gulp-autoprefixer": "^8.0.0",
     "leaflet": "^1.9.4",
+    "node-sass": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1",
@@ -35,11 +34,8 @@
     "eslint-plugin-react": "^7.34.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
-    "gulp": "^5.0.0",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
     "sass": "^1.77.5",
-    "vite": "^5.2.7"
+    "vite": "^5.2.7",
+    "vite-plugin-sass": "^0.1.0"
   }
 }

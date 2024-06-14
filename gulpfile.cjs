@@ -1,14 +1,13 @@
-const { src, dest, watch, series } = require('gulp');
-const autoprefixer = require('gulp-autoprefixer');
-const sass = require('gulp-sass')(require('sass'));
-const sourcemaps = require('gulp-sourcemaps');
-const cleanCSS = require('gulp-clean-css');
-
+import { src, dest, watch, series } from 'gulp';
+import sass from 'gulp-sass';
+import autoprefixer from 'gulp-autoprefixer';
+import sourcemaps from 'gulp-sourcemaps';
+import cleanCSS from 'gulp-clean-css';
 
 const paths = {
   styles: {
     src: 'src/sass/**/*.scss',
-    dest: 'src/styles'
+    dest: 'src/css'
   }
 };
 

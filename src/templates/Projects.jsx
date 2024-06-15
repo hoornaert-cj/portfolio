@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom';
 import Loading from '../utilities/Loading';
 import { restBase } from '../utilities/Utilities';
+
 
 const Projects = () => {
   const restPath = restBase + 'pages/51';
@@ -52,7 +53,6 @@ const Projects = () => {
             <section className="project-cards">
               {restData.acf.project_card.map((card, index) => (
                 <div key={index} className="project-card">
-                  <h2>{card.project_title}</h2>
                   {card.project_image && (
                     <img
                       src={card.project_image.url}
@@ -61,9 +61,12 @@ const Projects = () => {
                       height="200px"
                     />
                   )}
+                  <h2>{card.project_title}</h2>
                   <p>{card.project_description}</p>
                   {/* Modify Link to use project_post_id */}
-                  <Link to={`/project/${card.project_post_id}`}>Project</Link>
+                  <section className='projects-btn button'>
+                    <Link to={`/project/${card.project_post_id}`}>Detailed Project Info</Link>
+                  </section>
                 </div>
               ))}
             </section>

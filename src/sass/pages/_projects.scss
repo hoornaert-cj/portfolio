@@ -22,3 +22,26 @@
     padding: 0.5rem 1rem;
     margin: 1rem 0;
 }
+
+.project-cards {
+    @include flex-center;
+    flex-direction: column;
+}
+
+.project-card {
+    @include flex-center;
+    flex-direction: column;
+    @include text-background;
+    border: 1px solid  #053A4C;
+    background-color: white;
+    max-width: 37.5rem;
+
+    img {
+        @include mobile-img;
+        border-radius: $primary-border-radius;
+    }
+
+    p {
+        padding: 0 1rem;
+    }
+}

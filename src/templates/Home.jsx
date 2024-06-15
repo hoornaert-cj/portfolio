@@ -71,14 +71,6 @@ const Home = () => {
               <p>{restData.acf['home_call-to-action_text']}</p>
               {/* Ensure GlobalButtons and other elements are properly integrated */}
                 {restData.acf.global_buttons && <GlobalButtons buttons={restData.acf.global_buttons} />}
-
-              {restData.acf['home_call-to-action_image_2'] && (
-                <img
-                  src={restData.acf['home_call-to-action_image_2'].url}
-                  alt={restData.acf['home_call-to-action_image_2'].alt}
-                  width="300px"
-                />
-              )}
             </section>
           </div>
         </section>

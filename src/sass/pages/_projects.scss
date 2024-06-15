@@ -1,0 +1,24 @@
+.projects-wrapper {
+    margin-left: $mobile-marg-lr;
+    margin-right: $mobile-marg-lr;
+}
+
+.projects-intro {
+    @include flex-center;
+    flex-direction: column;
+
+    img {
+        @include mobile-img;
+
+
+        h1 {
+            font-size: $font-h1;
+        }
+}
+}
+
+.project-intro-text {
+    @include text-background;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+}

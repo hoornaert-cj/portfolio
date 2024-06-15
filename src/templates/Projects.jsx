@@ -32,6 +32,7 @@ const Projects = () => {
     <>
       {isLoaded ? (
         <section id="introduction" className="projects-wrapper">
+          <section className='projects-intro'>
           <h1>{restData.title.rendered}</h1>
           {restData.acf && restData.acf.projects_heading_image && (
             <img
@@ -41,7 +42,11 @@ const Projects = () => {
               height="300px"
             />
           )}
-          <p>{restData.acf.projects_intro}</p>
+            <section className='project-intro-text'>
+            <p>{restData.acf.projects_intro}</p>
+            </section>
+          </section>
+
 
           {restData.acf && restData.acf.project_card && (
             <section className="project-cards">

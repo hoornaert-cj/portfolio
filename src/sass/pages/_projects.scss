@@ -32,9 +32,9 @@
     @include flex-center;
     flex-direction: column;
     @include text-background;
-    border: 1px solid  #053A4C;
+    // border: 1px solid  #053A4C;
     background-color: white;
-    max-width: 37.5rem;
+    max-width: 25rem;
 
     img {
         @include mobile-img;

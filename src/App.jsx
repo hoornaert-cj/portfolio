@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Route, Routes, NavLink } from 'react-router-dom';
 import Home from './templates/Home';
 import About from './templates/About';
@@ -7,8 +8,13 @@ import Skills from './templates/Skills';
 import Contact from './templates/Contact';
 import './sass/abstracts/_mixins.scss';
 
-
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <>
       {/* Include the gradient background */}
@@ -16,7 +22,10 @@ function App() {
       <header id="masthead" className="site-header">
         <div className="site-branding">
         </div>
-        <nav className="site-navigation">
+        <button className="menu-toggle" aria-label="Toggle navigation" onClick={toggleMenu}>
+          Menu
+        </button>
+        <nav className={`site-navigation ${isMenuOpen ? 'active' : ''}`}>
           <ul>
             <li><NavLink to='/' end>Home</NavLink></li>
             <li><NavLink to='/about'>About</NavLink></li>
@@ -37,12 +46,12 @@ function App() {
         </Routes>
       </main>
       <footer>
-        <nav className="site-navigation">
+        {/* <nav className="site-navigation">
           <ul>
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/about'>About</NavLink></li>
           </ul>
-        </nav>
+        </nav> */}
         <p className="copyright">
           Created by <a href="https://chrishoornaert.com/" target="_blank" rel="noopener noreferrer">Chris Hoornaert</a>.
         </p>

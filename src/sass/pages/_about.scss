@@ -1,0 +1,31 @@
+.about-container {
+    margin-left: $mobile-marg-lr;
+    margin-right: $mobile-marg-lr;
+}
+
+.about-intro {
+    @include flex-center;
+    flex-direction: column;
+
+    img {
+        @include mobile-img;
+    }
+
+    h1 {
+        text-align: center;
+    }
+}
+
+.about-intro-text {
+    @include text-background;
+    padding: 1rem;
+}
+
+.accordion-section {
+    background-color: $primary-color;
+}
+
+.map-section {
+    @include text-background;
+    padding: 0.5rem;
+}

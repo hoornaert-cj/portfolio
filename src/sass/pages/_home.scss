@@ -23,18 +23,16 @@
   }
 
   .home-intro {
-    background-color: rgba(204, 230, 244, 0.85);
+    // background-color: rgba(204, 230, 244, 0.85);
+    @include text-background;
     color: #000;
     padding: 0.5rem;
-    border-radius: $primary-border-radius;
-    box-shadow:  $primary-box-shadow;
+    // border-radius: $primary-border-radius;
+    // box-shadow:  $primary-box-shadow;
 }
 // _home.scss
 .home-call-to-action {
-    background-color: rgba(204, 230, 244, 0.85);
-    border-radius: $primary-border-radius;
-    // padding: 1rem;
-    box-shadow:   $primary-box-shadow;
+    @include text-background;
     max-width: 37.5rem;
     margin: $el_center;
     display: flex;

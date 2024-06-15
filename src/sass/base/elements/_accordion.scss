@@ -1,0 +1,33 @@
+// @import '../../base/elements/accordion';
+.css-ahj2mt-MuiTypography-root ul li {
+    font-family: $font-family-text;
+}
+
+.MuiAccordion-root {
+    background-color: $primary-color;
+    border-radius: $primary-border-radius;
+
+    .MuiAccordionSummary-root {
+        background-color: $primary-color;
+        // border-radius: $primary-border-radius;
+
+        .MuiAccordionSummary-content {
+            background-color: $primary-color;
+
+            p {
+                font-family: $link-font-family;
+                color: white;
+                // text-transform: uppercase;
+                font-size: $font-normal-plus-1;
+            }
+
+            li {
+                font-family: $link-font-family;
+            }
+        }
+    }
+
+    .MuiAccordionDetails-root {
+        background-color: white
+    }
+}

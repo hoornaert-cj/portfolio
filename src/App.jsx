@@ -6,7 +6,9 @@ import Projects from './templates/Projects';
 import Project from './templates/Project';
 import Skills from './templates/Skills';
 import Contact from './templates/Contact';
-import './sass/abstracts/_mixins.scss';
+import './sass/styles.scss';
+// import './sass/base/elements/_body.scss'
+// import './sass/abstracts/_mixins.scss';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

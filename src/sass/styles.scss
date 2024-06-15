@@ -17,6 +17,7 @@
 // @import 'base/reset';
 @import 'base/typography';
 @import 'base/elements/body';
+@import 'base/elements/accordion';
 
 // Import components
 // @import 'components/buttons';
@@ -30,4 +31,4 @@
 
 // Import page-specific styles
 @import 'pages/home';
-// @import 'pages/about';
+@import 'pages/about';

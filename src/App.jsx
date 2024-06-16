@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, NavLink } from 'react-router-dom';
+import { Route, Routes, NavLink, Link } from 'react-router-dom';
 import Home from './templates/Home';
 import About from './templates/About';
 import Projects from './templates/Projects';
@@ -7,14 +7,17 @@ import Project from './templates/Project';
 import Skills from './templates/Skills';
 import Contact from './templates/Contact';
 import './sass/styles.scss';
-// import './sass/base/elements/_body.scss'
-// import './sass/abstracts/_mixins.scss';
+import Logo from './assets/images/Portfolio-Logo.svg'; // Import your SVG here
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
@@ -27,21 +30,23 @@ function App() {
 
   return (
     <>
-      {/* Include the gradient background */}
       <div className="gradient-background"></div>
       <header id="masthead" className="site-header">
         <div className="site-branding">
+          <Link to="/" onClick={closeMenu}>
+            <img src={Logo} alt="Portfolio Logo" className="site-logo" />
+          </Link>
         </div>
         <button className="menu-toggle" aria-label="Toggle navigation" onClick={toggleMenu}>
           Menu
         </button>
         <nav className={`site-navigation ${isMenuOpen ? 'active' : ''}`}>
           <ul>
-            <li><NavLink to='/' end>Home</NavLink></li>
-            <li><NavLink to='/about'>About</NavLink></li>
-            <li><NavLink to='/projects'>Projects</NavLink></li>
-            <li><NavLink to='/skills'>Skills</NavLink></li>
-            <li><NavLink to='/contact'>Contact</NavLink></li>
+            <li><NavLink to='/' end onClick={closeMenu}>Home</NavLink></li>
+            <li><NavLink to='/about' onClick={closeMenu}>About</NavLink></li>
+            <li><NavLink to='/projects' onClick={closeMenu}>Projects</NavLink></li>
+            <li><NavLink to='/skills' onClick={closeMenu}>Skills</NavLink></li>
+            <li><NavLink to='/contact' onClick={closeMenu}>Contact</NavLink></li>
           </ul>
         </nav>
       </header>
@@ -56,12 +61,6 @@ function App() {
         </Routes>
       </main>
       <footer>
-        {/* <nav className="site-navigation">
-          <ul>
-            <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/about'>About</NavLink></li>
-          </ul>
-        </nav> */}
         <p className="copyright">
           Created by <a href="https://chrishoornaert.com/" target="_blank" rel="noopener noreferrer">Chris Hoornaert</a>.
         </p>

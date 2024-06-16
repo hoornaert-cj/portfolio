@@ -1,6 +1,6 @@
 
 .gradient-background {
-    background-image: linear-gradient(45deg, #CCE6F4 0%, #053a4c 100%);
+    background-image: $background-gradient;
     position: fixed;
     top: 0;
     left: 0;

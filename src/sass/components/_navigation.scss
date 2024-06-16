@@ -2,12 +2,24 @@
   overflow: hidden;
 }
 
+.site-branding {
+  margin: 0 1.5rem;
+
+  .site-logo {
+    width: 2.5rem;
+    height: auto;
+    display: block;
+  }
+}
+
 .site-header {
     background-color: rgba(5, 58, 76, 0.7);
     color: white;
-    padding: 1.25rem 2rem;
+    padding: 1rem 0;
     position: relative;
     z-index: 2;
+    font-family: $font-family-text;
+    @include flex-space-between;
 
     .menu-toggle {
       display: none;
@@ -42,6 +54,7 @@
             padding: 0.5rem 1rem;
             display: inline-block;
             font-family: $font-family-text;
+            font-size: $font-normal-plus-1;
 
             &:hover,
             &.active {
@@ -58,13 +71,13 @@
         left: 0;
         width: 100%;
         height: calc(100% - 4rem);
-        background-color: rgba(5, 58, 76, 0.9);
+        background-image: $background-gradient;
         z-index: 10;
         padding: 1rem 0;
 
         &.active {
           display: block;
-          margin-top: 3rem;
+          margin-top: 4.5rem;
         }
 
         ul {

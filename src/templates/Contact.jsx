@@ -34,7 +34,8 @@ const Contact = () => {
       {isLoaded ? (
         <section id="contact" className="contact-wrapper">
         <article className="contact-intro">
-          <h2>{restData.acf.contact_heading}</h2>
+          <h1>{restData.acf.contact_heading}</h1>
+          <img src={icon.contact_logo.url} alt={icon.contact_logo.alt} />
           <div dangerouslySetInnerHTML={{ __html: restData.acf.contact_intro }}></div>
         </article>
         <section className="contact-icons">

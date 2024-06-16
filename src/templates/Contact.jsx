@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Loading from '../utilities/Loading';
 import { restBase } from '../utilities/Utilities';
 import GlobalButtons from '../components/GlobalButtons';
@@ -28,32 +28,31 @@ const Contact = () => {
     fetchData();
   }, [restPath]);
 
-
   return (
     <>
       {isLoaded ? (
         <section id="contact" className="contact-wrapper">
-        <article className="contact-intro">
-          <h1>{restData.acf.contact_heading}</h1>
-          <img src={icon.contact_logo.url} alt={icon.contact_logo.alt} />
-          <div dangerouslySetInnerHTML={{ __html: restData.acf.contact_intro }}></div>
-        </article>
-        <section className="contact-icons">
-        {restData.acf.contact_email && (
-          <p className='contact-email'>{restData.acf.contact_email}</p>
-          )}
-          {restData.acf.contact_icons && restData.acf.contact_icons.map((icon, index) => (
-            <a key={index} href={icon.contact_icon_url} target="_blank" rel="noopener noreferrer">
-              <img src={icon.contact_icon_image.url} alt={icon.contact_icon_image.alt} />
-            </a>
-          ))}
-        </section>
-        <section className="contact-btn-call-to-action">
-            {restData.acf.global_buttons && (
-            <GlobalButtons buttons={restData.acf.global_buttons} />
-          )}
+          <article className="contact-intro">
+            <h1>{restData.acf.contact_heading}</h1>
+            <img src={restData.acf.contact_logo.url} alt={restData.acf.contact_logo.alt} />
+            <div dangerouslySetInnerHTML={{ __html: restData.acf.contact_intro }}></div>
+          </article>
+          <section className="contact-icons">
+            {restData.acf.contact_email && (
+              <p className='contact-email'>{restData.acf.contact_email}</p>
+            )}
+            {restData.acf.contact_icons && restData.acf.contact_icons.map((icon, index) => (
+              <a key={index} href={icon.contact_icon_url} target="_blank" rel="noopener noreferrer">
+                <img src={icon.contact_icon_image.url} alt={icon.contact_icon_image.alt} />
+              </a>
+            ))}
           </section>
-      </section>
+          <section className="contact-btn-call-to-action">
+            {restData.acf.global_buttons && (
+              <GlobalButtons buttons={restData.acf.global_buttons} />
+            )}
+          </section>
+        </section>
       ) : (
         <Loading />
       )}

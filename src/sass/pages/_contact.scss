@@ -1,0 +1,46 @@
+.contact-wrapper {
+    margin-left: $mobile-marg-lr;
+    margin-right: $mobile-marg-lr;
+}
+
+.contact-intro {
+    @include flex-center;
+    flex-direction: column;
+
+    img {
+        @include mobile-img;
+        max-width: 8rem;
+    }
+
+    p {
+        @include text-background;
+        padding: 1rem;
+    }
+}
+
+.contact-icons {
+    @include flex-center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: $primary-border-radius;
+    padding: 1rem;
+
+    img {
+        @include mobile-img;
+        border-radius: $primary-border-radius;
+        width: 7rem;
+        transition: filter 0.3s ease;
+        margin: 1rem 0;
+
+        &:hover {
+            transform: scale(1.15);
+        }
+    }
+}
+
+.contact-btn-call-to-action {
+    @include flex-center;
+    padding: 1.5rem 0;
+    margin: 1rem;
+}
+

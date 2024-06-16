@@ -6,6 +6,7 @@ $link-color: #fff ;
 $p_white-text: #fff;
 $button-color: rgb(49, 8, 31);
 $background-gradient: linear-gradient(45deg, #CCE6F4 0%, #053a4c 100%);
+$btn-icon-gradient: linear-gradient(30deg, #b51e73, #31081f);
 
 
 
@@ -38,4 +39,12 @@ $primary-border-radius: 0.5rem;
 
 //Define center element
 $el_center: 0 auto;
+
+  //Define variable for box shadow
+  $primary-box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+
+  //Define drop shadow for images
+  $primary-drop-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+    $drop-border-radius: 8px;
+
 

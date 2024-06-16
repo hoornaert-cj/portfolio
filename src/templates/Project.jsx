@@ -44,16 +44,18 @@ const Project = () => {
   }
 
   return (
-    <div className="project-details">
+    <div className="indv-project-wrapper">
+      <section className='indv-project-intro'>
+
       <h1>{projectData.acf.indv_project_title_heading}</h1>
       {projectData.acf.project_animation && (
         <img
           src={projectData.acf.project_animation.url}
           alt={projectData.acf.project_animation.alt || 'Project animation'}
           autoPlay
-          style={{ width: '400px' }}
         />
       )}
+      </section>
 
       <Tabs>
         <TabList>

@@ -1,0 +1,17 @@
+.indv-project-wrapper {
+        margin-left: $mobile-marg-lr;
+        margin-right: $mobile-marg-lr;
+}
+
+.indv-project-intro {
+        @include flex-center;
+        flex-direction: column;
+        margin: 1rem 0;
+
+        img {
+                @include mobile-img;
+                border-radius: $primary-border-radius;
+                box-shadow:   $primary-box-shadow;
+        }
+}
+

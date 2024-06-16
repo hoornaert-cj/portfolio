@@ -23,6 +23,8 @@
 // @import 'components/buttons';
 @import 'components/navigation';
 @import './components/buttons';
+@import './components/react-tabs';
+
 
 @import 'generic/normalize';
 // Import layouts
@@ -33,3 +35,4 @@
 @import 'pages/home';
 @import 'pages/about';
 @import 'pages/projects';
+@import 'pages/project';

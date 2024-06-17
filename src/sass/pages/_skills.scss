@@ -1,0 +1,23 @@
+.skills-wrapper {
+    margin-left: $mobile-marg-lr;
+    margin-right: $mobile-marg-lr;
+}
+
+.skills-content {
+
+}
+
+.skills-logo {
+    @include flex-center;
+    margin-top: 1.5rem;
+
+    img {
+        @include mobile-img;
+        max-width: 8rem;
+    }
+}
+
+.skills-intro {
+    @include  text-background;
+    padding: 1rem;
+}

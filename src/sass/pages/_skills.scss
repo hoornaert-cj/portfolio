@@ -20,4 +20,29 @@
 .skills-intro {
     @include  text-background;
     padding: 1rem;
+    margin-bottom: 1.5rem;
+
+    h2 {
+        margin-top: 0.25rem;
+    }
 }
+
+.skills-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .skills-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .skills-btn-call-to-action {
+    @include flex-center;
+    padding: 1.5rem 0;
+    margin: 1rem;
+  }
+
+

@@ -31,9 +31,9 @@
       background-color: $primary-color;
       color: $p_white-text;
       border-bottom: 2px solid $secondary-color;
-      text-decoration: none; // Ensure no underline
-      outline: none; // Remove outline when selected
-      border: none; // Remove any borders
+      text-decoration: none;
+      outline: none;
+      border: none;
 
       * {
         text-decoration: none; // Ensure no underline on inner elements
@@ -45,7 +45,7 @@
     font-family: $font-family-text;
     padding: 1rem;
     border-radius: $primary-border-radius;
-    background-color: $p_white-text;
+    background-color: rgba(204, 230, 244, 0.85);
     max-width: 100%;
   }
 

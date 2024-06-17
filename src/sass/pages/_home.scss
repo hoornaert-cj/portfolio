@@ -23,12 +23,10 @@
   }
 
   .home-intro {
-    // background-color: rgba(204, 230, 244, 0.85);
     @include text-background;
     color: #000;
     padding: 0.5rem;
-    // border-radius: $primary-border-radius;
-    // box-shadow:  $primary-box-shadow;
+
 }
 // _home.scss
 .home-call-to-action {

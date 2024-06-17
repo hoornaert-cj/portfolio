@@ -39,112 +39,114 @@ const Skills = () => {
   };
 
   return (
-    <>
-      {isLoaded ? (
-        <section id="skills" className="skills-wrapper">
-          <section className="skills-content">
-            {restData.acf.skills_logo && (
+      <>
+        {isLoaded ? (
+          <section id="skills" className="skills-wrapper">
+            <section className="skills-content">
+              {restData.acf.skills_logo && (
                 <div className="skills-logo">
                   <img
                     src={restData.acf.skills_logo.url}
                     alt={restData.acf.skills_logo.alt}
+                    width="150px" // You can adjust the width as needed
+                    height="auto"
                   />
                 </div>
               )}
-            <article className="skills-intro">
-              <h2>{restData.acf.skills_header}</h2>
-              <div
-                dangerouslySetInnerHTML={{ __html: restData.acf.skills_intro }}
-              />
-            </article>
-            <Tabs>
-              <TabList>
-                <Tab>All</Tab>
-                <Tab>Web Dev</Tab>
-                <Tab>GIS</Tab>
-              </TabList>
+              <article className="skills-intro">
+                <h2>{restData.acf.skills_header}</h2>
+                <div
+                  dangerouslySetInnerHTML={{ __html: restData.acf.skills_intro }}
+                />
+              </article>
+              <Tabs>
+                <TabList>
+                  <Tab>All</Tab>
+                  <Tab>Web Dev</Tab>
+                  <Tab>GIS</Tab>
+                </TabList>
 
-              <TabPanel>
-                <section className="skills-icons">
-                  {filterIcons("all").map((skill, index) => (
-                    <div key={index} className="skills-icon">
-                      {skill.skills_icon && (
-                        <a
-                          href={skill.skills_icon.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src={skill.skills_icon.url}
-                            alt={skill.skills_icon.alt}
-                            width="64px"
-                            height="64px"
-                          />
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </section>
-              </TabPanel>
+                <TabPanel>
+                  <section className="skills-icons">
+                    {filterIcons("all").map((skill, index) => (
+                      <div key={index} className="skills-icon">
+                        {skill.skills_icon && (
+                          <a
+                            href={skill.skills_icon.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img
+                              src={skill.skills_icon.url}
+                              alt={skill.skills_icon.alt}
+                              width="64px"
+                              height="64px"
+                            />
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </section>
+                </TabPanel>
 
-              <TabPanel>
-                <section className="skills-icons">
-                  {filterIcons("Web Dev").map((skill, index) => (
-                    <div key={index} className="skills-icon">
-                      {skill.skills_icon && (
-                        <a
-                          href={skill.skills_icon.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src={skill.skills_icon.url}
-                            alt={skill.skills_icon.alt}
-                            width="64px"
-                            height="64px"
-                          />
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </section>
-              </TabPanel>
+                <TabPanel>
+                  <section className="skills-icons">
+                    {filterIcons("Web Dev").map((skill, index) => (
+                      <div key={index} className="skills-icon">
+                        {skill.skills_icon && (
+                          <a
+                            href={skill.skills_icon.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img
+                              src={skill.skills_icon.url}
+                              alt={skill.skills_icon.alt}
+                              width="64px"
+                              height="64px"
+                            />
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </section>
+                </TabPanel>
 
-              <TabPanel>
-                <section className="skills-icons">
-                  {filterIcons("GIS").map((skill, index) => (
-                    <div key={index} className="skills-icon">
-                      {skill.skills_icon && (
-                        <a
-                          href={skill.skills_icon.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <img
-                            src={skill.skills_icon.url}
-                            alt={skill.skills_icon.alt}
-                            width="64px"
-                            height="64px"
-                          />
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </section>
-              </TabPanel>
-            </Tabs>
+                <TabPanel>
+                  <section className="skills-icons">
+                    {filterIcons("GIS").map((skill, index) => (
+                      <div key={index} className="skills-icon">
+                        {skill.skills_icon && (
+                          <a
+                            href={skill.skills_icon.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img
+                              src={skill.skills_icon.url}
+                              alt={skill.skills_icon.alt}
+                              width="64px"
+                              height="64px"
+                            />
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </section>
+                </TabPanel>
+              </Tabs>
+            </section>
+            <section className="skills-btn-call-to-action">
+              {restData.acf.global_buttons && (
+                <GlobalButtons buttons={restData.acf.global_buttons} />
+              )}
+            </section>
           </section>
-          <section className="skills-btn-call-to-action">
-            {restData.acf.global_buttons && (
-              <GlobalButtons buttons={restData.acf.global_buttons} />
-            )}
-          </section>
-        </section>
-      ) : (
-        <Loading />
-      )}
-    </>
-  );
-};
+        ) : (
+          <Loading />
+        )}
+      </>
+    );
+  };
 
 export default Skills;

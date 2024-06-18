@@ -11,6 +11,8 @@
 
     &:hover {
         background-color: darken($button-color, 10%);
+        transform: scale(1.15);
+
     }
 
     &:active {

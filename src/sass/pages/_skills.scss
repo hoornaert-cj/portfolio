@@ -10,7 +10,19 @@
 
     .skills-content {
         grid-column: 2 / 5;
+        width: 45rem;
     }
+
+    .react-tabs {
+        // @include flex-center;
+        // flex-direction: column;
+        width: 55rem;
+        margin: 0  auto;
+    }
+
+//    .react-tabs__tab-panel {
+//         width: 48rem;
+//     }
 }
 
 .skills-logo {
@@ -49,6 +61,12 @@
     @include flex-center;
     padding: 1.5rem 0;
     margin: 1rem;
+  }
+
+  @include respond-to(small) {
+    .skills-icons {
+        @include grid-layout($columns: 3, $gutter: 1rem)
+    }
   }
 
 

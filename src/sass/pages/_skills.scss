@@ -66,7 +66,7 @@
 
   @include respond-to(small) {
     .skills-icons {
-        @include grid-layout($columns: 3, $gutter: 1rem)
+        @include grid-icons($columns: 3, $gutter: 1rem);
     }
   }
 
@@ -76,7 +76,7 @@
     }
 
     .skills-icons {
-        @include grid-layout($columns: 4, $gutter: 1rem)
+        @include grid-icons($columns: 4, $gutter: 1rem);
     }
   }
 

@@ -3,6 +3,23 @@
     margin-right: $mobile-marg-lr;
 }
 
+@include respond-to(small) {
+    .projects-wrapper {
+        @include grid-layout;
+    }
+
+    .projects-content {
+        grid-column: 2 / 5;
+        width: 100%;
+    }
+
+    .project-cards {
+        @include flex-center;
+        flex-wrap: wrap
+    }
+}
+
+
 .projects-intro {
     @include flex-center;
     flex-direction: column;
@@ -29,19 +46,66 @@
 }
 
 .project-card {
-    @include flex-center;
-    flex-direction: column;
-    @include text-background;
-    // border: 1px solid  #053A4C;
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    grid-template-areas:
+      "image"
+      "title"
+      "summary"
+      "button";
+    align-items: center;
+    justify-items: center;
     background-color: white;
-    max-width: 25rem;
+    border-radius: $primary-border-radius;
+    box-shadow: $primary-box-shadow;
+    max-width: 18.75rem;
+    height: 42.5rem;
+    margin-bottom: 1.5rem;
 
     img {
-        @include mobile-img;
-        border-radius: $primary-border-radius;
+      grid-area: image;
+      @include mobile-img;
+      border-radius: $primary-border-radius;
+      align-self: flex-start;
+      margin-top: 0;
+    }
+
+    h2 {
+      grid-area: title;
+      margin: 0.5rem 0;
     }
 
     p {
-        padding: 0 1rem;
+      grid-area: summary;
+      padding: 0 1rem;
+      margin: 0;
+      margin-bottom: 1rem;
     }
-}
+
+    .projects-btn {
+      grid-area: button;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: auto;
+    }
+  }
+
+
+
+  @include respond-to(small) {
+    .project-intro-text {
+        margin: 2rem 0;
+    }
+
+    .project-cards {
+        @include flex-space-between;
+        flex-direction: row;
+    }
+  }
+
+  @include respond-to(medium) {
+    .project-card {
+        max-width: 21.875rem;
+    }
+  }

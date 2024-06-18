@@ -5,6 +5,12 @@
   margin: 0 auto;
   overflow: hidden;
 
+  @include respond-to(small) {
+    .react-tabs {
+      max-width: 42.5rem;
+    }
+  }
+
   .react-tabs__tab-list {
     display: flex;
     justify-content: center;
@@ -61,6 +67,7 @@
 
     &:hover {
       background-color: darken($button-color, 10%);
+
     }
   }
 }

@@ -135,11 +135,11 @@ const Skills = () => {
                   </section>
                 </TabPanel>
               </Tabs>
-            </section>
             <section className="skills-btn-call-to-action">
               {restData.acf.global_buttons && (
                 <GlobalButtons buttons={restData.acf.global_buttons} />
               )}
+            </section>
             </section>
           </section>
         ) : (

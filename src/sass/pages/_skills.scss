@@ -3,8 +3,14 @@
     margin-right: $mobile-marg-lr;
 }
 
-.skills-content {
+@include respond-to(small) {
+    .skills-wrapper {
+        @include grid-layout;
+    }
 
+    .skills-content {
+        grid-column: 2 / 5;
+    }
 }
 
 .skills-logo {

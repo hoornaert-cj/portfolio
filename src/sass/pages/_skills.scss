@@ -11,6 +11,7 @@
     .skills-content {
         grid-column: 2 / 5;
         width: 45rem;
+        margin: 0 auto;
     }
 
     .react-tabs {
@@ -66,6 +67,16 @@
   @include respond-to(small) {
     .skills-icons {
         @include grid-layout($columns: 3, $gutter: 1rem)
+    }
+  }
+
+  @include respond-to(medium) {
+    .skills-content {
+        width: 55rem;
+    }
+
+    .skills-icons {
+        @include grid-layout($columns: 4, $gutter: 1rem)
     }
   }
 

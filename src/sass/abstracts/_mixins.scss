@@ -40,3 +40,28 @@
     margin: 1rem 0;
   }
 
+  //Define Breakpoints for larger screens
+  @mixin respond-to($breakpoint) {
+    @if $breakpoint == small {
+      @media (min-width: $breakpoint-small) {
+        @content;
+      }
+    } @else if $breakpoint == medium {
+      @media (min-width: $breakpoint-medium) {
+        @content;
+      }
+    }
+  }
+
+  //Define the Page Layout mixin for larger screens
+  @mixin grid-layout($columns: 5, $gutter: 1rem) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    grid-gap: $gutter;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+

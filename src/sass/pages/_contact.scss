@@ -1,6 +1,24 @@
 .contact-wrapper {
     margin-left: $mobile-marg-lr;
     margin-right: $mobile-marg-lr;
+
+    .global-buttons {
+        @include flex-center;
+    }
+}
+
+
+
+@include respond-to(small) {
+    .contact-wrapper {
+        @include grid-layout;
+    }
+
+    .contact-content {
+        grid-column: 2 / 5;
+        width: 45rem;
+        margin: 0 auto;
+    }
 }
 
 .contact-large-logo {

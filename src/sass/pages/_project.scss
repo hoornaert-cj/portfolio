@@ -1,12 +1,12 @@
-// Base styles for .indv-project-wrapper
-// .indv-project-wrapper {
-//         margin-left: $mobile-marg-lr;
-//         margin-right: $mobile-marg-lr;
-//       }
+Base styles for .indv-project-wrapper
+.indv-project-wrapper {
+        margin-left: $mobile-marg-lr;
+        margin-right: $mobile-marg-lr;
+      }
 
-//       .react-tabs {
-//         width: calc(100vw - 20px);
-//       }
+      .react-tabs {
+        width: calc(100vw - 20px);
+      }
 
       .description-repeater-buttons {
         @include flex-center;
@@ -19,10 +19,10 @@
         }
 
         .indv-project-content {
-          grid-column: 2 / 6; // Adjust for medium layout
+          grid-column: 2 / 6;
           width: 100%;
           display: grid;
-          grid-template-columns: repeat(4, 1fr); // Apply grid to this element
+          grid-template-columns: repeat(4, 1fr);
           grid-gap: 1rem;
 
           .indv-project-intro {

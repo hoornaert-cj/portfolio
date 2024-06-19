@@ -1,5 +1,4 @@
-//Import _normalize.scss
-@import 'generic/normalize';
+
 
 //font imports
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap'); //Cinzel font for H1 and H2
@@ -28,7 +27,8 @@
 @import './components/buttons';
 @import './components/react-tabs';
 
-
+//Import _normalize.scss
+@import 'generic/normalize';
 
 // Import layouts
 // @import 'layouts/header';

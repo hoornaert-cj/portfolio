@@ -32,6 +32,7 @@ const Contact = () => {
     <>
       {isLoaded ? (
         <section id="contact" className="contact-wrapper">
+          <section className='contact-content'>
           <section className='contact-large-logo'>
           <img src={restData.acf.contact_logo.url} alt={restData.acf.contact_logo.alt} />
           </section>
@@ -54,6 +55,7 @@ const Contact = () => {
               <GlobalButtons buttons={restData.acf.global_buttons} />
             )}
           </article>
+          </section>
         </section>
       ) : (
         <Loading />

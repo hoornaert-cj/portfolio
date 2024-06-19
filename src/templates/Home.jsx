@@ -1,9 +1,9 @@
 // Home.jsx
-import React, { useState, useEffect } from 'react';
-import Loading from '../utilities/Loading';
-import { restBase } from '../utilities/Utilities';
-import GlobalButtons from '../components/GlobalButtons'
-import '../sass/pages/_home.scss';
+import React, { useState, useEffect } from "react";
+import Loading from "../utilities/Loading";
+import { restBase } from "../utilities/Utilities";
+import GlobalButtons from "../components/GlobalButtons";
+import "../sass/pages/_home.scss";
 
 const Home = () => {
   const restPath = `${restBase}pages/9/?acf_format=standard`;
@@ -16,14 +16,16 @@ const Home = () => {
       try {
         const response = await fetch(restPath);
         if (!response.ok) {
-          throw new Error(`Network response was not ok: ${response.statusText}`);
+          throw new Error(
+            `Network response was not ok: ${response.statusText}`,
+          );
         }
         const data = await response.json();
-        console.log('Fetched data:', data);
+        console.log("Fetched data:", data);
         setRestData(data);
         setLoadStatus(true);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
         setError(error);
         setLoadStatus(true);
       }
@@ -37,7 +39,9 @@ const Home = () => {
   }
 
   if (error) {
-    return <div className="error-message">Error fetching data: {error.message}</div>;
+    return (
+      <div className="error-message">Error fetching data: {error.message}</div>
+    );
   }
 
   if (!restData || !restData.acf) {
@@ -47,32 +51,36 @@ const Home = () => {
   const { acf } = restData;
 
   return (
-    <main id="main" style={{ position: 'relative' }}>
-      <div className="home-container">
-        <section id={`post-${restData.id}`}>
-          <div className="entry-content">
-            <section className="home-header">
-              {restData.acf.home_heading_image && (
-                <img
-                  src={restData.acf.home_heading_image.url}
-                  alt={restData.acf.home_heading_image.alt}
-                />
-              )}
-              <h2>{restData.acf.home_name}</h2>
-              <p className="home-intro">{restData.acf.home_intro}</p>
-            </section>
-            <section className="home-call-to-action">
-              {restData.acf['home_call-to-action_image_1'] && (
-                <img
-                  src={restData.acf['home_call-to-action_image_1'].url}
-                  alt={restData.acf['home_call-to-action_image_1'].alt}
-                />
-              )}
-              <p>{restData.acf['home_call-to-action_text']}</p>
-              {/* Ensure GlobalButtons and other elements are properly integrated */}
-                {restData.acf.global_buttons && <GlobalButtons buttons={restData.acf.global_buttons} />}
-            </section>
-          </div>
+    <main id="main" style={{ position: "relative" }}>
+      <div className="home-wrapper">
+        <section className="home-content">
+              <section className="home-header">
+                {restData.acf.home_heading_image && (
+                  <img
+                    src={restData.acf.home_heading_image.url}
+                    alt={restData.acf.home_heading_image.alt}
+                  />
+                )}
+              </section>
+                <section className='home-intro'>
+                <h2>{restData.acf.home_name}</h2>
+                <p className>{restData.acf.home_intro}</p>
+                </section>
+              <section className="home-call-to-action">
+                {restData.acf["home_call-to-action_image_1"] && (
+                  <img
+                    src={restData.acf["home_call-to-action_image_1"].url}
+                    alt={restData.acf["home_call-to-action_image_1"].alt}
+                  />
+                )}
+                <p>{restData.acf["home_call-to-action_text"]}</p>
+                {/* Ensure GlobalButtons and other elements are properly integrated */}
+                {restData.acf.global_buttons && (
+                  <GlobalButtons buttons={restData.acf.global_buttons} />
+                )}
+              </section>
+
+
         </section>
       </div>
     </main>

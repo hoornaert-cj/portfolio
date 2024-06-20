@@ -48,12 +48,12 @@
 }
 
 @include respond-to(medium) {
-  .about-wrapper {
-    @include grid-layout-medium;
-  }
+  // .about-wrapper {
+  //   @include grid-layout-medium;
+  // }
 
   .about-content {
-    grid-column: 2 / 6;
+    grid-column: 2 / 5;
     gap: 1rem;
     width: 100%;
     display: grid;
@@ -78,8 +78,8 @@
   }
 
   .map-section {
-    grid-column: 1 / 5; /* Spanning across all columns */
-    grid-row: 3; /* Positioned in the third row */
+    grid-column: 1 / 5;
+    grid-row: 3;
   }
 }
 

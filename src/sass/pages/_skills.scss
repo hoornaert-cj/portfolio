@@ -10,14 +10,14 @@
 
     .skills-content {
         grid-column: 2 / 5;
-        width: 45rem;
+        width: 100%;
         margin: 0 auto;
     }
 
     .react-tabs {
         // @include flex-center;
         // flex-direction: column;
-        width: 55rem;
+        width: 100%;
         margin: 0  auto;
     }
 
@@ -72,11 +72,12 @@
 
   @include respond-to(medium) {
     .skills-content {
-        width: 55rem;
+        width: 100%;
     }
 
     .skills-icons {
         @include grid-icons($columns: 4, $gutter: 1rem);
+        width: 100%;
     }
   }
 

@@ -7,6 +7,34 @@
   margin-right: $mobile-marg-lr;
 }
 
+.about-content {
+  margin-top: 1.5rem;
+}
+
+.about-intro {
+  @include text-background;
+  padding: 1rem;
+
+  h1 {
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
+.about-img {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
 @include respond-to(small) {
   .about-wrapper {
     @include grid-layout;
@@ -31,69 +59,38 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto;
-
-    .about-intro {
-      grid-column: 1 / 3;
-      grid-row: 1;
-      width: 100%;
-
-      img {
-        margin-top: 0;
-      }
-    }
-
-    .accordion-section {
-      grid-column: 3 / 5;
-      width: 100%;
-      height: auto;
-    }
-
-    .map-section {
-      grid-column: 1 / 5;
-      grid-row: 2;
-      width: 100%;
-    }
   }
-}
 
-.about-content {
+  .about-img {
+    grid-column: 1 / 3;
+    grid-row: 1;
+  }
+
+  .about-intro {
+    grid-column: 3 / 5;
+    grid-row: 1;
     margin-top: 1.5rem;
+  }
+
+  .accordion-section {
+    grid-column: 1 / 5;
+    grid-row: 2;
+  }
+
+  .map-section {
+    grid-column: 1 / 5; /* Spanning across all columns */
+    grid-row: 3; /* Positioned in the third row */
+  }
 }
 
 .about-intro {
   @include flex-center;
   flex-direction: column;
-
-
-  img {
-    @include mobile-img;
-    max-width: 45rem;
-  }
-
-  h1 {
-    text-align: center;
-    margin-top: 0;
-  }
 }
-
-.about-intro-text {
-  @include text-background;
-  padding: 1rem;
-}
-
-// .accordion-section {
-//   background-color: $primary-color;
-// }
 
 .map-section {
   @include text-background;
   @include flex-center;
   flex-direction: column;
   padding: 1rem;
-
-//   #map {
-//     padding: 1rem;
-// }
 }
-
-

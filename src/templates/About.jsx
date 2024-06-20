@@ -43,18 +43,18 @@ const About = () => {
     return (
         <div className='about-wrapper'>
             <section className='about-content'>
-            <section className="about-intro">
+            <section className="about-img">
                 {avatar_image && (
                     <img
                         src={avatar_image.url}
                         alt={avatar_image.alt}
                     />
                 )}
-                <section className='about-intro-text'>
+            </section>
+                <section className='about-intro'>
                 <h1>About Me</h1>
                 <div dangerouslySetInnerHTML={{ __html: about_intro }}></div>
                 </section>
-            </section>
             <section className='accordion-section'>
                 <Accordion>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">

@@ -1,6 +1,7 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
+// Base styles for .home-container
 .home-wrapper {
   margin-left: $mobile-marg-lr;
   margin-right: $mobile-marg-lr;
@@ -14,6 +15,8 @@
   padding: 1rem;
 }
 
+
+// Media queries for small screens
 @include respond-to(small) {
   .home-wrapper {
     @include grid-layout;
@@ -30,6 +33,7 @@
   }
 }
 
+// Media queries for medium screens
 @include respond-to(medium) {
   .home-wrapper {
     @include grid-layout-medium;

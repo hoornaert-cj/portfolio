@@ -41,16 +41,19 @@ const About = () => {
     const { avatar_image, about_intro, interesting_facts, about_map_title, about_map_latitude, about_map_longitude, about_map_zoom, about_map_markers } = acf || {};
 
     return (
-        <div className='about-container'>
+        <div className='about-wrapper'>
+            <section className='about-content'>
             <section className="about-intro">
-                <h1>About Me</h1>
                 {avatar_image && (
                     <img
                         src={avatar_image.url}
                         alt={avatar_image.alt}
                     />
                 )}
-                <div className = "about-intro-text" dangerouslySetInnerHTML={{ __html: about_intro }}></div>
+                <section className='about-intro-text'>
+                <h1>About Me</h1>
+                <div dangerouslySetInnerHTML={{ __html: about_intro }}></div>
+                </section>
             </section>
             <section className='accordion-section'>
                 <Accordion>
@@ -106,6 +109,7 @@ const About = () => {
             <section>
                 <button onClick={() => window.location.href='/projects'}>View Projects</button>
                 <button onClick={() => window.location.href='/about'}>Learn More About Me</button>
+            </section>
             </section>
         </div>
     );

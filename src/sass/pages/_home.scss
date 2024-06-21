@@ -20,6 +20,7 @@
 @include respond-to(small) {
   .home-wrapper {
     @include grid-layout;
+    margin-left: 0;
   }
 
   .home-header img {
@@ -35,20 +36,56 @@
 
 // Media queries for medium screens
 @include respond-to(medium) {
-
   .home-content {
-    grid-column: 2 / 5;
+    grid-column: 1 / 5;
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto;
     grid-gap: 1rem;
-    margin-top: 2rem;
 
     .home-header {
-      grid-column: 1 / 3;
+      grid-column: 1 / 4;
       grid-row: 1;
       width: 100%;
+      animation: slideInLeft 1s forwards;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .home-intro {
+      grid-column: 3 / 5;
+      grid-row: 1;
+      background-color: transparent;
+      box-shadow: none;
+      @include flex-center;
+      flex-direction: column;
+      animation: slideInRight 1s forwards;
+
+      .home-intro-text {
+        background-color: rgba(204, 230, 244, 0.75);
+        color: $primary-color;
+        padding: 1rem;
+        border-radius: $primary-border-radius;
+        box-shadow: $primary-box-shadow;
+
+
+      }
+
+      h1, p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: $font-normal-plus-1;
+      }
     }
 
     .home-call-to-action {
@@ -58,18 +95,35 @@
   }
 }
 
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
 @include respond-to(large) {
 
   .home-content {
     width: 100%;
-    // display: grid;
-    // grid-template-columns: repeat(6, 1fr);
-    // grid-gap: 1rem;
 
     .home-header {
-      grid-column: 1 / 3;
+      grid-column: 1 / 4;
       grid-row: 1;
       width: 100%;
+      z-index: 1;
     }
 
     .home-intro {
@@ -78,10 +132,11 @@
       width: 100%;
       margin: 0;
       padding: 0;
+      z-index: 99;
     }
 
     .home-call-to-action {
-      grid-column: 1/5;
+      grid-column: 2/5;
       grid-row: 2;
       width: 100%;
     }
@@ -96,7 +151,6 @@
     width: 18.75rem;
     height: 12.5rem;
     margin: $el_center;
-    border-radius: $primary-border-radius;
   }
 }
 

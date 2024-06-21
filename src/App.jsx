@@ -6,8 +6,9 @@ import Projects from './templates/Projects';
 import Project from './templates/Project';
 import Skills from './templates/Skills';
 import Contact from './templates/Contact';
+import Footer from './components/Footer';
 import './sass/styles.scss';
-import Logo from './assets/images/Portfolio-Logo.svg'; // Import your SVG here
+import Logo from './assets/images/Portfolio-Logo.svg';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -60,11 +61,7 @@ function App() {
           <Route path='/contact' element={<Contact />} />
         </Routes>
       </main>
-      <footer>
-        <p className="copyright">
-          Created by <a href="https://chrishoornaert.com/" target="_blank" rel="noopener noreferrer">Chris Hoornaert</a>.
-        </p>
-      </footer>
+      <Footer />
     </>
   );
 }

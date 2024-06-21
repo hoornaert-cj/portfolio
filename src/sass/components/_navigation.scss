@@ -19,7 +19,6 @@
     padding: 1rem 0;
     position: relative;
     z-index: 2;
-    font-family: $font-family-text;
     @include flex-space-between;
 
     .menu-toggle {
@@ -32,6 +31,10 @@
       color: white;
       font-size: 1.5rem;
       cursor: pointer;
+
+      .site-navigation a {
+        font-size:  $font-normal-plus-2 ;
+      }
 
       @media (max-width: 768px) {
         display: block;
@@ -54,12 +57,14 @@
             text-decoration: none;
             padding: 0.5rem 1rem;
             display: inline-block;
-            font-family: $font-family-text;
+            font-family: $font-family-h1;
             font-size: $font-normal-plus-1;
+            margin-right: 1.5rem;
 
             &:hover,
             &.active {
-              color: yellow;
+              color: $secondary-color;
+              transform: scale(1.25);
             }
           }
         }

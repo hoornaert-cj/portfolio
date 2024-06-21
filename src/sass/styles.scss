@@ -22,10 +22,10 @@
 @import 'base/elements/accordion';
 
 // Import components
-// @import 'components/buttons';
 @import 'components/navigation';
 @import './components/buttons';
 @import './components/react-tabs';
+@import 'components/footer';
 
 //Import _normalize.scss
 @import 'generic/normalize';

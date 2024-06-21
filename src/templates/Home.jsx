@@ -63,8 +63,10 @@ const Home = () => {
                 )}
               </section>
                 <section className='home-intro'>
-                <h2>{restData.acf.home_name}</h2>
+                  <section className="home-intro-text">
+                <h1>{restData.acf.home_name}</h1>
                 <p className>{restData.acf.home_intro}</p>
+                  </section>
                 </section>
               <section className="home-call-to-action">
                 {restData.acf["home_call-to-action_image_1"] && (

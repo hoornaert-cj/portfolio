@@ -35,6 +35,11 @@
     }
   }
 
+  .about-intro-text {
+    background-color: rgba(204, 230, 244, 0.85);
+    color: $primary-color;
+  }
+
 @include respond-to(small) {
   .about-wrapper {
     @include grid-layout;
@@ -45,12 +50,16 @@
     width: 45rem;
     margin: 0 auto;
   }
+
+  .about-intro-text {
+    grid-column: 2 / 5;
+  }
 }
 
 @include respond-to(medium) {
-  // .about-wrapper {
-  //   @include grid-layout-medium;
-  // }
+  .about-wrapper {
+    margin-left: 0;
+  }
 
   .about-content {
     grid-column: 1 / 5;
@@ -66,10 +75,11 @@
     grid-row: 1;
       width: 100%;
     animation: slideInLeft 1s forwards;
+    margin-top: 0;
   }
 
   .about-intro {
-    grid-column: 3 / 5;
+    grid-column: 2 / 5;
     grid-row: 1;
     background-color: transparent;
     box-shadow: none;
@@ -80,8 +90,7 @@
 
     .about-intro-text {
       margin-top: 11.5rem;
-      background-color: rgba(204, 230, 244, 0.85);
-      color: $primary-color;
+      font-size: $font-normal-plus-1;
       padding: 1rem;
       border-radius: $primary-border-radius;
       box-shadow: $primary-box-shadow;
@@ -98,14 +107,25 @@
   }
 }
 
-.about-intro {
-  @include flex-center;
-  flex-direction: column;
-}
+// .about-intro {
+//   grid-column: 2 / 5;
+//   @include flex-center;
+//   flex-direction: column;
+// }
 
 .map-section {
   @include text-background;
   @include flex-center;
   flex-direction: column;
   padding: 1rem;
+}
+
+@include respond-to(large) {
+  .about-intro {
+    grid-column: 3/ 5;
+  }
+
+  .about-intro-text {
+    font-size: $font-normal-plus-1;
+  }
 }

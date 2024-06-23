@@ -52,8 +52,10 @@ const About = () => {
                 )}
             </section>
                 <section className='about-intro'>
+                    <section className='about-intro-text'>
                 <h1>About Me</h1>
                 <div dangerouslySetInnerHTML={{ __html: about_intro }}></div>
+                    </section>
                 </section>
             <section className='accordion-section'>
                 <Accordion>

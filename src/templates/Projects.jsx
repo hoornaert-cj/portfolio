@@ -36,16 +36,14 @@ const Projects = () => {
           <section className="projects-content">
 
           <section className='projects-intro'>
-          <h1>{restData.title.rendered}</h1>
           {restData.acf && restData.acf.projects_heading_image && (
             <img
               src={restData.acf.projects_heading_image.url}
               alt={restData.acf.projects_heading_image.alt}
-              width="500px"
-              height="300px"
             />
           )}
             <section className='project-intro-text'>
+            <h1>{restData.title.rendered}</h1>
             <p>{restData.acf.projects_intro}</p>
             </section>
           </section>
@@ -59,8 +57,6 @@ const Projects = () => {
                     <img
                       src={card.project_image.url}
                       alt={card.project_image.alt}
-                      width="300px"
-                      height="200px"
                     />
                   )}
                   <h2>{card.project_title}</h2>

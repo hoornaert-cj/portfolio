@@ -33,10 +33,10 @@
       cursor: pointer;
 
       .site-navigation a {
-        font-size:  $font-normal-plus-2 ;
+        font-size:  $font-normal-plus-3 ;
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 48em) {
         display: block;
       }
     }

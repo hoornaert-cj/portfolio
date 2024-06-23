@@ -101,7 +101,7 @@
 }
 
 
-@include respond-to(medium) {
+@include respond-to(large) {
     .project-card {
         display: grid;
         grid-template-columns: 40% 60%;

@@ -1,15 +1,19 @@
+@import '../abstracts/variables';
+@import '../abstracts/mixins';
+
+// Base styles for .projects-wrapper
 .projects-wrapper {
     margin-left: $mobile-marg-lr;
     margin-right: $mobile-marg-lr;
 }
 
 .project-intro-text {
-  h1 {
-    margin-top: 0;
-  }
+    h1 {
+        margin-top: 0;
+    }
 }
 
-@include respond-to(small) {
+@include respond-to(medium) {
     .projects-wrapper {
         @include grid-layout;
     }
@@ -21,10 +25,9 @@
 
     .project-cards {
         @include flex-center;
-        flex-wrap: wrap
+        flex-wrap: wrap;
     }
 }
-
 
 .projects-intro {
     @include flex-center;
@@ -32,12 +35,11 @@
 
     img {
         @include mobile-img;
+    }
 
-
-        h1 {
-            font-size: $font-h1;
-        }
-}
+    h1 {
+        font-size: $font-h1;
+    }
 }
 
 .project-intro-text {
@@ -53,7 +55,7 @@
 
 .project-card {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto auto;
     grid-template-areas:
       "image"
       "title"
@@ -65,7 +67,7 @@
     border-radius: $primary-border-radius;
     box-shadow: $primary-box-shadow;
     max-width: 18.75rem;
-    height: 42.5rem;
+    // height: 42.5rem;
     margin-bottom: 1.5rem;
 
     img {
@@ -74,44 +76,58 @@
       border-radius: $primary-border-radius;
       align-self: flex-start;
       margin-top: 0;
-    }
+  }
 
-    h2 {
+  h2 {
       grid-area: title;
       margin: 0.5rem 0;
-    }
+  }
 
-    p {
+  p {
       grid-area: summary;
       padding: 0 1rem;
       margin: 0;
       margin-bottom: 1rem;
-    }
+  }
 
-    .projects-btn {
+  .projects-btn {
+
       grid-area: button;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: auto;
-    }
+      margin-top: 0.5rem;
   }
+}
 
 
-
-  @include respond-to(small) {
-    .project-intro-text {
-        margin: 2rem 0;
-    }
-
-    .project-cards {
-        @include flex-space-between;
-        flex-direction: row;
-    }
-  }
-
-  @include respond-to(medium) {
+@include respond-to(medium) {
     .project-card {
-        max-width: 18.75rem;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "image . "
+          "image summary"
+          "image button "
+          "title button ";
+        max-width: none;
+        height: auto;
+
+        img {
+          align-self: start;
+          justify-self: start;
+          border-radius: 0;
+          @include nw-se-corner-radius;
+        }
+
+        h2, p, .projects-btn {
+            align-self: start;
+            text-align: left;
+        }
+
+        .projects-btn {
+          margin: 1.5rem 0;
+        }
     }
-  }
+}

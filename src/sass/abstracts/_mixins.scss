@@ -82,4 +82,10 @@
     grid-gap: $gutter;
   }
 
+  //Mixin for corners:
+  @mixin nw-se-corner-radius {
+    border-start-start-radius: $primary-border-radius;
+    border-end-end-radius: $primary-border-radius;
+  }
+
 

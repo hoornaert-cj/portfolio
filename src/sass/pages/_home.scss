@@ -132,6 +132,8 @@
     .home-call-to-action {
       grid-column: 3 / 5;
       width: 100%;
+      opacity: 0;
+    animation: fadeIn 1s forwards 1s
     }
   }
 }

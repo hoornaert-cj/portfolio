@@ -22,29 +22,13 @@
   }
 
 .projects-intro-text {
-    background-color: rgba(204, 230, 244, 0.85);
+    background-color: rgba(204, 230, 244, 0.94);
     color: $primary-color;
 
     h1 {
         margin-top: 0;
     }
 }
-
-// @include respond-to(small) {
-//     .projects-wrapper {
-//       @include grid-layout;
-//     }
-
-//     .projects-content {
-//       grid-column: 2 / 5;
-//       width: 45rem;
-//       margin: 0 auto;
-//     }
-
-//     .projects-intro-text {
-//       grid-column: 2 / 5;
-//     }
-//   }
 
   @include respond-to(medium) {
     .projects-wrapper {
@@ -90,7 +74,6 @@
       padding: 1rem;
       border-radius: $primary-border-radius;
       box-shadow: $primary-box-shadow;
-      @include text-background;
 
       h1 {
         margin-top: 0;
@@ -123,12 +106,6 @@
         font-size: $font-h1;
     }
 }
-
-// .project-intro-text {
-//     @include text-background;
-//     padding: 0.5rem 1rem;
-//     margin: 1rem 0;
-// }
 
 .project-cards {
     @include flex-center;
@@ -186,6 +163,16 @@
 
 
 @include respond-to(large) {
+    .projects-intro-text {
+        h1 {
+            font-size: 3rem;
+        }
+
+        p {
+            font-size: $font-normal-plus-1;
+        }
+    }
+
     .project-card {
         display: grid;
         grid-template-columns: 40% 60%;

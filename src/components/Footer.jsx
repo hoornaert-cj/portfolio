@@ -1,7 +1,6 @@
 // src/components/Footer.jsx
 import React, { useState, useEffect } from 'react';
 import { restBase } from '../utilities/Utilities';
-// import './sass/components/_footer.scss';
 
 const Footer = () => {
   const restPath = `${restBase}pages/9?acf_format=standard`;

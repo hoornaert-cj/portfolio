@@ -4,6 +4,10 @@ Base styles for .indv-project-wrapper
         margin-right: $mobile-marg-lr;
       }
 
+    .indv-project-content {
+      padding-bottom: $padding-bottom-mobile;
+    }
+
       .react-tabs {
         width: calc(100vw - 20px);
       }

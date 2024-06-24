@@ -10,6 +10,8 @@
   flex-shrink: 0;
   width: 100%;
   box-shadow: $top-box-shadow;
+  opacity: 0;
+  animation: fadeIn 1s forwards 2s;
 
   .copyright {
     margin-bottom: 1rem;
@@ -61,22 +63,4 @@
   }
 }
 
-// global styles (usually in a main.scss or similar)
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.content {
-  flex: 1; // This makes the content area take up the remaining space
-}
-
-.footer {
-  // No specific height needed, it will be pushed to the bottom naturally
-}

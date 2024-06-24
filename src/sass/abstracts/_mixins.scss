@@ -64,6 +64,13 @@
     grid-gap: 1rem;
   }
 
+  @mixin grid-layout-elements($columns: 4, $rows: auto auto, $gap: 1rem) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    grid-template-rows: $rows;
+    grid-gap: $gap;
+  }
+
   @mixin grid-layout-medium {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;

@@ -47,13 +47,9 @@ Base styles for .indv-project-wrapper
 
       // Media queries for large screens
       @include respond-to(large) {
-        .indv-project-wrapper {
-          @include grid-layout-large;
-        }
 
         .indv-project-content {
-          grid-column: 2 / 8;
-          width: 100%;
+
           display: grid;
           grid-template-columns: repeat(6, 1fr); // Apply grid to this element
           grid-gap: 1rem;

@@ -107,10 +107,9 @@
         grid-template-columns: 40% 60%;
         grid-template-rows: auto;
         grid-template-areas:
-          "image . "
+          "image title"
           "image summary"
-          "image button "
-          "title button ";
+          "image button ";
         max-width: none;
         height: auto;
 
@@ -126,8 +125,12 @@
             text-align: left;
         }
 
+        h2 {
+            margin-top: 1rem;
+        }
+
         .projects-btn {
-          margin: 1.5rem 0;
+          margin: 1rem 0;
         }
     }
 }

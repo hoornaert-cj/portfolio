@@ -1,4 +1,3 @@
-
 .gradient-background {
     background-image: $background-gradient;
     position: fixed;
@@ -9,7 +8,25 @@
     z-index: -2;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin-left: $mobile-marg-lr;
     margin-right: $mobile-marg-lr;
+    display: flex;
+    flex-direction: column;
 }
+
+.about-wrapper,
+.home-wrapper,
+.projects-wrapper,
+.project-wrapper,
+.skills-wrapper,
+.contact-wrapper {
+    flex: 1;
+}
+

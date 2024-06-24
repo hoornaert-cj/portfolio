@@ -31,7 +31,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p className="copyright">
-        &copy; {currentYear} {footerData.copyright} | Created by
+      {footerData.copyright} &copy; {currentYear} | Created by
         <a href="https://chrishoornaert.com/" target="_blank" rel="noopener noreferrer"> Chris Hoornaert</a>
       </p>
       <div className="social-links">

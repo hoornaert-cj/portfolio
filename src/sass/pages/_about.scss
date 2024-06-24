@@ -9,6 +9,7 @@
 
 .about-content {
   margin-top: 1.5rem;
+  @include calc-min-height;
 }
 
 .about-intro {
@@ -132,7 +133,9 @@
   }
 
   .about-intro-text {
-    font-size: $font-normal-plus-1;
+    p {
+      font-size: $font-normal-plus-1;
+    }
 
   }
 }

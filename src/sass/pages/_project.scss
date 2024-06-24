@@ -36,13 +36,13 @@ Base styles for .indv-project-wrapper
           }
 
           .react-tabs {
-            grid-column: 3 / 5; // Adjust for medium layout
+            grid-column: 3 / 5;
             grid-row: 1 / 3;
-            width: 100%; // Ensure it fills the columns
+            width: 100%;
           }
 
           .global-buttons {
-            grid-column: 1 / 4; // Adjust for medium layout
+            grid-column: 1 / 4;
             grid-row: 2;
             margin-top: 2rem;
           }
@@ -53,9 +53,8 @@ Base styles for .indv-project-wrapper
       @include respond-to(large) {
 
         .indv-project-content {
-
           display: grid;
-          grid-template-columns: repeat(6, 1fr); // Apply grid to this element
+          grid-template-columns: repeat(6, 1fr);
           grid-gap: 1rem;
 
           .indv-project-intro {
@@ -72,7 +71,7 @@ Base styles for .indv-project-wrapper
           }
 
           .global-buttons {
-            grid-column: 1 / 4; // Columns 2, 3, and 4
+            grid-column: 1;
             grid-row: 2;
             @include flex-center;
             margin-top: 2rem;

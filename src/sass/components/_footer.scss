@@ -3,10 +3,12 @@
 
 .footer {
   background-color: $primary-color;
-  padding: 1rem;
+  padding: 1.75rem 0;
+  margin-top: 3rem;
   text-align: center;
   color: #fff;
   @include flex-center;
+  flex-direction: column;
   flex-shrink: 0;
   width: 100%;
   box-shadow: $top-box-shadow;
@@ -21,7 +23,7 @@
       text-decoration: underline;
 
       &:hover {
-        color: darken($primary-color, 10%);
+        color: darken($primary-color, 30%);
       }
     }
   }
@@ -29,19 +31,20 @@
   .social-links {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
+    margin-right: 4rem;
 
     a {
       color: #fff;
       font-size: 1.5rem;
 
       img {
-        width: 1.5rem;
-        height: 1.5rem;
+        width: 2rem;
+        height: 2rem;
       }
 
       &:hover {
-        color: darken($primary-color, 10%);
+        transform: scale(1.2);
       }
     }
   }
@@ -58,8 +61,13 @@
 
     .social-links {
       order: 2;
-      margin-right: 1rem;
     }
+  }
+}
+
+@include respond-to(medium)  {
+  .footer {
+    margin-top: 5rem;
   }
 }
 

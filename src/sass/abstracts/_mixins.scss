@@ -95,4 +95,9 @@
     border-end-end-radius: $primary-border-radius;
   }
 
+  //Mixin for ensuring the footer goes to the bottom of the page
+  @mixin calc-min-height {
+    min-height: calc(100vh - #{$header-height} - #{$footer-height});
+  }
+
 

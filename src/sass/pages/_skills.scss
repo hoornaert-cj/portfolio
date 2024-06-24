@@ -12,6 +12,7 @@
         grid-column: 2 / 5;
         width: 100%;
         margin: 0 auto;
+        @include calc-min-height;
     }
 
     .react-tabs {
@@ -39,7 +40,7 @@
 .skills-intro {
     @include  text-background;
     padding: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
 
     h2 {
         margin-top: 0.25rem;
@@ -73,6 +74,8 @@
   @include respond-to(medium) {
     .skills-content {
         width: 100%;
+        opacity: 0;
+      animation: fadeIn 0.5s forwards 0.5s
     }
 
     .skills-icons {

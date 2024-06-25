@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes, NavLink, Link } from 'react-router-dom';
+import { Route, Routes, BrowserRouter, NavLink, Link } from 'react-router-dom';
 import Home from './templates/Home';
 import About from './templates/About';
 import Projects from './templates/Projects';
@@ -9,6 +9,8 @@ import Contact from './templates/Contact';
 import Footer from './components/Footer';
 import './sass/styles.scss';
 import Logo from './assets/images/Portfolio-Logo.svg';
+
+import { APP_FOLDER_NAME } from './js/globalVariables.js';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,6 +32,7 @@ function App() {
   }, [isMenuOpen]);
 
   return (
+    <BrowserRouter basename={`/${APP_FOLDER_NAME}`}>
     <>
       <div className="gradient-background"></div>
       <header id="masthead" className="site-header">
@@ -63,6 +66,8 @@ function App() {
       </main>
       <Footer />
     </>
+
+    </BrowserRouter>
   );
 }
 

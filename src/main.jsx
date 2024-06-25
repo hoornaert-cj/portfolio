@@ -5,9 +5,11 @@ import './sass/styles.scss'
 <sass></sass>
 import { BrowserRouter } from 'react-router-dom'
 
+import { APP_FOLDER_NAME } from './js/globalVariables.js';
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename={`/${APP_FOLDER_NAME}`}>
       <App />
     </BrowserRouter>
   </React.StrictMode>,

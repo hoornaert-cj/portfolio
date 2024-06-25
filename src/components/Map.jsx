@@ -73,14 +73,16 @@ const Map = ({ center, zoom, markers }) => {
             // Add event listener to handle button clicks
             markerInstance.on('popupopen', function() {
                 const button = document.querySelector('.zoom-to-btn');
-                button.addEventListener('click', function() {
-                    const lat = parseFloat(button.getAttribute('data-lat'));
-                    const lng = parseFloat(button.getAttribute('data-lng'));
-                    map.setView([lat, lng], 14); // Adjust zoom level as needed
-                    button.textContent = 'Back to Home';
-                    button.classList.remove('zoom-to-btn');
-                    button.classList.add('back-home-btn');
-                });
+                if (button) {
+                    button.addEventListener('click', function() {
+                        const lat = parseFloat(button.getAttribute('data-lat'));
+                        const lng = parseFloat(button.getAttribute('data-lng'));
+                        map.setView([lat, lng], 14); // Adjust zoom level as needed
+                        button.textContent = 'Back to Home';
+                        button.classList.remove('zoom-to-btn');
+                        button.classList.add('back-home-btn');
+                    });
+                }
             });
         });
 
@@ -94,14 +96,15 @@ const Map = ({ center, zoom, markers }) => {
         const map = mapRef.current;
         if (!map) return;
 
-        const handleBackToHome = () => {
-            map.setView(
-                [initialViewRef.current.center.latitude, initialViewRef.current.center.longitude],
-                initialViewRef.current.zoom
-            );
+        const handleBackToHome = (e) => {
+            if (e.target.classList.contains('back-home-btn')) {
+                map.setView(
+                    [initialViewRef.current.center.latitude, initialViewRef.current.center.longitude],
+                    initialViewRef.current.zoom
+                );
+            }
         };
 
-        // Delegate event handling to the document
         document.addEventListener('click', handleBackToHome);
 
         return () => {

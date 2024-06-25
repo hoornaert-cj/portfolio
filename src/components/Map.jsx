@@ -70,7 +70,6 @@ const Map = ({ center, zoom, markers }) => {
                     <br><button class="zoom-to-btn" data-lat="${marker.latitude}" data-lng="${marker.longitude}">Zoom To</button>
                 `);
 
-            // Add event listener to handle button clicks
             markerInstance.on('popupopen', function() {
                 const button = document.querySelector('.zoom-to-btn');
                 if (button) {
@@ -91,17 +90,16 @@ const Map = ({ center, zoom, markers }) => {
         };
     }, [center, zoom, markers]);
 
-    // Handle Back to Home button click
     useEffect(() => {
-        const map = mapRef.current;
-        if (!map) return;
-
         const handleBackToHome = (e) => {
             if (e.target.classList.contains('back-home-btn')) {
-                map.setView(
-                    [initialViewRef.current.center.latitude, initialViewRef.current.center.longitude],
-                    initialViewRef.current.zoom
-                );
+                const map = mapRef.current;
+                if (map) {
+                    map.setView(
+                        [initialViewRef.current.center.latitude, initialViewRef.current.center.longitude],
+                        initialViewRef.current.zoom
+                    );
+                }
             }
         };
 

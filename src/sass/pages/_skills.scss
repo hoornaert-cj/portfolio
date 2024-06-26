@@ -1,3 +1,8 @@
+body,
+main {
+    min-height: 100dvh;
+}
+
 .skills-wrapper {
     margin-left: $mobile-marg-lr;
     margin-right: $mobile-marg-lr;
@@ -12,7 +17,6 @@
         grid-column: 2 / 5;
         width: 100%;
         margin: 0 auto;
-        @include calc-min-height;
     }
 
     .react-tabs {

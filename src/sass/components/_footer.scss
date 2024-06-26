@@ -32,7 +32,6 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-right: 4rem;
 
     a {
       color: #fff;
@@ -68,6 +67,10 @@
 @include respond-to(medium)  {
   .footer {
     margin-top: 5rem;
+  }
+
+  .social-links {
+    margin-right: 4rem;
   }
 }
 

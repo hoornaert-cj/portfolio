@@ -66,21 +66,12 @@ const Home = () => {
                   <section className="home-intro-text">
                 <h1>{restData.acf.home_name}</h1>
                 <p className>{restData.acf.home_intro}</p>
-                  </section>
-                </section>
-              <section className="home-call-to-action">
-                {restData.acf["home_call-to-action_image_1"] && (
-                  <img
-                    src={restData.acf["home_call-to-action_image_1"].url}
-                    alt={restData.acf["home_call-to-action_image_1"].alt}
-                  />
-                )}
-                <p>{restData.acf["home_call-to-action_text"]}</p>
-                {/* Ensure GlobalButtons and other elements are properly integrated */}
                 {restData.acf.global_buttons && (
                   <GlobalButtons buttons={restData.acf.global_buttons} />
                 )}
-              </section>
+                  </section>
+
+                </section>
 
 
         </section>

@@ -1,4 +1,8 @@
-Base styles for .indv-project-wrapper
+body,
+main {
+    min-height: 100dvh;
+}
+
 .indv-project-wrapper {
         margin-left: $mobile-marg-lr;
         margin-right: $mobile-marg-lr;

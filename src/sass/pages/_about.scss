@@ -1,5 +1,7 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+body,
+main {
+    min-height: 100dvh;
+}
 
 // Base styles for .about-wrapper
 .about-wrapper {
@@ -9,7 +11,7 @@
 
 .about-content {
   margin-top: 1.5rem;
-  @include calc-min-height;
+  // @include calc-min-height;
 }
 
 .about-intro {

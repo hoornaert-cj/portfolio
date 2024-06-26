@@ -23,10 +23,11 @@
 @import 'base/elements/fade-in';
 
 // Import components
-@import 'components/footer';
+@import './components/loading';
 @import 'components/navigation';
 @import './components/buttons';
 @import './components/react-tabs';
+@import 'components/footer';
 
 //Import _normalize.scss
 @import 'generic/normalize';

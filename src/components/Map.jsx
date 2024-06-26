@@ -5,6 +5,7 @@ import personalIconUrl from '../assets/images/Personal.png';
 import professionalIconUrl from '../assets/images/Professional.png';
 import educationalIconUrl from '../assets/images/Education.png';
 
+// Define icons
 const personalIcon = new L.Icon({
     iconUrl: personalIconUrl,
     iconSize: [30, 30],
@@ -39,13 +40,16 @@ const Map = ({ center, zoom, markers }) => {
             return;
         }
 
+        // Initialize the map
         const map = L.map('map').setView([center.latitude, center.longitude], zoom);
         mapRef.current = map;
 
+        // Add tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors',
         }).addTo(map);
 
+        // Add markers with icons
         markers.forEach(marker => {
             let icon;
             switch (marker.location_type) {
@@ -76,7 +80,9 @@ const Map = ({ center, zoom, markers }) => {
                     button.addEventListener('click', function() {
                         const lat = parseFloat(button.getAttribute('data-lat'));
                         const lng = parseFloat(button.getAttribute('data-lng'));
-                        map.setView([lat, lng], 14); // Adjust zoom level as needed
+                        if (mapRef.current) {
+                            mapRef.current.setView([lat, lng], 14); // Adjust zoom level as needed
+                        }
                         button.textContent = 'Back to Home';
                         button.classList.remove('zoom-to-btn');
                         button.classList.add('back-home-btn');
@@ -85,31 +91,39 @@ const Map = ({ center, zoom, markers }) => {
             });
         });
 
+        // Cleanup function when component unmounts
         return () => {
-            map.remove();
+            if (mapRef.current) {
+                mapRef.current.remove();
+                mapRef.current = null;
+            }
         };
     }, [center, zoom, markers]);
 
+    // Event listener for Back to Home button
     useEffect(() => {
+        const map = mapRef.current;
+        if (!map) return;
+
         const handleBackToHome = (e) => {
             if (e.target.classList.contains('back-home-btn')) {
-                const map = mapRef.current;
-                if (map) {
-                    map.setView(
-                        [initialViewRef.current.center.latitude, initialViewRef.current.center.longitude],
-                        initialViewRef.current.zoom
-                    );
-                }
+                map.setView(
+                    [initialViewRef.current.center.latitude, initialViewRef.current.center.longitude],
+                    initialViewRef.current.zoom
+                );
             }
         };
 
+        // Add event listener to document for back-home-btn
         document.addEventListener('click', handleBackToHome);
 
+        // Cleanup function for event listener
         return () => {
             document.removeEventListener('click', handleBackToHome);
         };
     }, []);
 
+    // Render the map container
     return <div id="map" style={{ height: '500px', width: '100%' }}></div>;
 };
 

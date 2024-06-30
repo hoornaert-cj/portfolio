@@ -47,6 +47,6 @@ a {
   }
 
   &:hover {
-    color: $hover-color;
+    transform: scale(1.15);
   }
 }

@@ -65,7 +65,7 @@ const Home = () => {
                 <section className='home-intro'>
                   <section className="home-intro-text">
                 <h1>{restData.acf.home_name}</h1>
-                <p className>{restData.acf.home_intro}</p>
+                <p>{restData.acf.home_intro}</p>
                 {restData.acf.global_buttons && (
                   <GlobalButtons buttons={restData.acf.global_buttons} />
                 )}

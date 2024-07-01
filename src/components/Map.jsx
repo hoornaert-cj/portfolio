@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import personalIconUrl from '../assets/images/Personal.png';
@@ -49,7 +49,7 @@ const Map = ({ center, zoom, markers }) => {
             attribution: '&copy; OpenStreetMap contributors',
         }).addTo(map);
 
-        // Add markers with icons
+        // Add markers with icons and popups
         markers.forEach(marker => {
             let icon;
             switch (marker.location_type) {
@@ -74,19 +74,24 @@ const Map = ({ center, zoom, markers }) => {
                     <br><button class="zoom-to-btn" data-lat="${marker.latitude}" data-lng="${marker.longitude}">Zoom To</button>
                 `);
 
-            markerInstance.on('popupopen', function() {
-                const button = document.querySelector('.zoom-to-btn');
+            // Attach an event listener when the popup is opened
+            markerInstance.on('popupopen', function (e) {
+                const popup = e.popup;
+                const popupContent = popup.getElement();
+                const button = popupContent.querySelector('.zoom-to-btn');
                 if (button) {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         const lat = parseFloat(button.getAttribute('data-lat'));
                         const lng = parseFloat(button.getAttribute('data-lng'));
                         if (mapRef.current) {
-                            mapRef.current.setView([lat, lng], 14); // Adjust zoom level as needed
+                            mapRef.current.setView([lat, lng],5);
                         }
                         button.textContent = 'Back to Home';
                         button.classList.remove('zoom-to-btn');
                         button.classList.add('back-home-btn');
                     });
+                } else {
+                    console.error('Button not found in popup content');
                 }
             });
         });
@@ -106,11 +111,14 @@ const Map = ({ center, zoom, markers }) => {
         if (!map) return;
 
         const handleBackToHome = (e) => {
-            if (e.target.classList.contains('back-home-btn')) {
-                map.setView(
+            if (e.target.classList.contains('back-home-btn') && mapRef.current) {
+                mapRef.current.setView(
                     [initialViewRef.current.center.latitude, initialViewRef.current.center.longitude],
                     initialViewRef.current.zoom
                 );
+                e.target.textContent = 'Zoom To';
+                e.target.classList.remove('back-home-btn');
+                e.target.classList.add('zoom-to-btn');
             }
         };
 

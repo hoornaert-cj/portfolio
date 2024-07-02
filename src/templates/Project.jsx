@@ -7,24 +7,23 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 const Project = () => {
-  const { id } = useParams();
-  const restPath = `${restBase}cjh-project/${id}/?acf_format=standard`;
+  const { slug } = useParams();
   const [projectData, setProjectData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProject = async () => {
-      console.log(`Fetching project from URL: ${restPath}`);
+      console.log(`Fetching project for slug: ${slug}`);
       try {
-        const response = await fetch(restPath);
+        const response = await fetch(`${restBase}cjh-project?acf_format=standard&project_slug=${slug}`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
         console.log("Fetched project data:", data);
 
-        setProjectData(data);
+        setProjectData(data[0]); // Assuming the API returns an array
         setIsLoaded(true);
       } catch (error) {
         console.error("Error fetching project:", error);
@@ -33,7 +32,7 @@ const Project = () => {
       }
     };
     fetchProject();
-  }, [restPath]);
+  }, [slug]);
 
   if (!isLoaded) {
     return <Loading />;
@@ -41,6 +40,10 @@ const Project = () => {
 
   if (error) {
     return <div className="error-message">Error fetching project: {error}</div>;
+  }
+
+  if (!projectData || !projectData.acf) {
+    return <div className="error-message">Project data not found or incomplete.</div>;
   }
 
   return (
@@ -56,18 +59,6 @@ const Project = () => {
             />
           )}
         </section>
-
-        {projectData.acf.small_project_images && projectData.acf.small_project_images.length > 0 && (
-          <section className="small-project-images">
-            {projectData.acf.small_project_images.map((imageObj, index) => (
-              <img
-                key={index}
-                src={imageObj.small_project_image.url}
-                alt={imageObj.small_project_image.alt || `Small project image ${index + 1}`}
-              />
-            ))}
-          </section>
-        )}
 
         <Tabs>
           <TabList>
@@ -87,28 +78,28 @@ const Project = () => {
                     }}
                   />
                   <section className='description-repeater-buttons'>
-                  {desc.indv_project_live_link_label &&
-                    desc.indv_project_live_link_url && (
-                      <a
-                        href={desc.indv_project_live_link_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="button"
-                      >
-                        {desc.indv_project_live_link_label}
-                      </a>
-                    )}
-                  {desc.indv_project_github_label &&
-                    desc.indv_project_github_url && (
-                      <a
-                        href={desc.indv_project_github_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="button"
-                      >
-                        {desc.indv_project_github_label}
-                      </a>
-                    )}
+                    {desc.indv_project_live_link_label &&
+                      desc.indv_project_live_link_url && (
+                        <a
+                          href={desc.indv_project_live_link_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="button"
+                        >
+                          {desc.indv_project_live_link_label}
+                        </a>
+                      )}
+                    {desc.indv_project_github_label &&
+                      desc.indv_project_github_url && (
+                        <a
+                          href={desc.indv_project_github_url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="button"
+                        >
+                          {desc.indv_project_github_label}
+                        </a>
+                      )}
                   </section>
                 </div>
               ))}

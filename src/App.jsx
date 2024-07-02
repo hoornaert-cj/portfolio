@@ -4,7 +4,6 @@ import Home from './templates/Home';
 import About from './templates/About';
 import Projects from './templates/Projects';
 import Project from './templates/Project';
-// import Skills from './templates/Skills';
 import Contact from './templates/Contact';
 import Footer from './components/Footer';
 import './sass/styles.scss';
@@ -46,7 +45,6 @@ function App() {
             <li><NavLink to='/' end onClick={closeMenu}>Home</NavLink></li>
             <li><NavLink to='/about' onClick={closeMenu}>About</NavLink></li>
             <li><NavLink to='/projects' onClick={closeMenu}>Projects</NavLink></li>
-            {/* <li><NavLink to='/skills' onClick={closeMenu}>Skills</NavLink></li> */}
             <li><NavLink to='/contact' onClick={closeMenu}>Contact</NavLink></li>
           </ul>
         </nav>
@@ -56,8 +54,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/projects' element={<Projects />} />
-          <Route path='/project/:id' element={<Project />} />
-          {/* <Route path='/skills' element={<Skills />} /> */}
+          <Route path='/project/:slug' element={<Project />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>
       </main>

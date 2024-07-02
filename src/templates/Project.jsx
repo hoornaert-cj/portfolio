@@ -57,6 +57,18 @@ const Project = () => {
           )}
         </section>
 
+        {projectData.acf.small_project_images && projectData.acf.small_project_images.length > 0 && (
+          <section className="small-project-images">
+            {projectData.acf.small_project_images.map((imageObj, index) => (
+              <img
+                key={index}
+                src={imageObj.small_project_image.url}
+                alt={imageObj.small_project_image.alt || `Small project image ${index + 1}`}
+              />
+            ))}
+          </section>
+        )}
+
         <Tabs>
           <TabList>
             <Tab>Description</Tab>

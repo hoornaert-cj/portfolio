@@ -5,12 +5,14 @@ import { restBase } from "../utilities/Utilities";
 import GlobalButtons from "../components/GlobalButtons";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+// import "./Project.scss"; // Import your SCSS file
 
 const Project = () => {
   const { slug } = useParams();
   const [projectData, setProjectData] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1024);
 
   useEffect(() => {
     const fetchProject = async () => {
@@ -23,7 +25,7 @@ const Project = () => {
         const data = await response.json();
         console.log("Fetched project data:", data);
 
-        setProjectData(data[0]); // Assuming the API returns an array
+        setProjectData(data[0]);
         setIsLoaded(true);
       } catch (error) {
         console.error("Error fetching project:", error);
@@ -136,6 +138,23 @@ const Project = () => {
             </section>
           </TabPanel>
         </Tabs>
+
+        {isLargeScreen && projectData.acf.small_project_images && (
+          <section className="project-gallery">
+            <div className="gallery-thumbnails">
+              {projectData.acf.small_project_images.map((image, index) => (
+                <img
+                  key={index}
+                  src={image.url}
+                  alt={image.alt}
+                  className="project-image"
+                  // style={{ width: "15rem" }}
+                  onClick={() => console.log("Image clicked:", image.url)} // Replace with your desired handling
+                />
+              ))}
+            </div>
+          </section>
+        )}
 
         {projectData.acf.global_buttons && (
           <GlobalButtons buttons={projectData.acf.global_buttons} />

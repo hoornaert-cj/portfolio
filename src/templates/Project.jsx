@@ -73,7 +73,6 @@ const Project = () => {
             <section className="description-repeater">
               {projectData.acf.description_repeater.map((desc, index) => (
                 <div key={index}>
-                  <h3>{desc.indv_project_type}</h3>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: desc.indv_project_description,
@@ -127,7 +126,6 @@ const Project = () => {
             <section className="reflection-repeater">
               {projectData.acf.reflection_repeater.map((reflection, index) => (
                 <div key={index}>
-                  <h3>{reflection.indv_reflection_heading}</h3>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: reflection.indv_reflection,
@@ -148,8 +146,6 @@ const Project = () => {
                   src={image.url}
                   alt={image.alt}
                   className="project-image"
-                  // style={{ width: "15rem" }}
-                  onClick={() => console.log("Image clicked:", image.url)} // Replace with your desired handling
                 />
               ))}
             </div>

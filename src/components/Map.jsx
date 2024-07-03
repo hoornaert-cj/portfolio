@@ -84,7 +84,7 @@ const Map = ({ center, zoom, markers }) => {
                         const lat = parseFloat(button.getAttribute('data-lat'));
                         const lng = parseFloat(button.getAttribute('data-lng'));
                         if (mapRef.current) {
-                            mapRef.current.setView([lat, lng],5);
+                            mapRef.current.setView([lat, lng], 8);
                         }
                         button.textContent = 'Back to Home';
                         button.classList.remove('zoom-to-btn');

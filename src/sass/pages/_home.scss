@@ -12,7 +12,7 @@
   margin-right: $mobile-marg-lr;
 }
 
-.home-content {
+#main {
   @include calc-min-height;
 }
 

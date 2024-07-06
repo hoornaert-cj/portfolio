@@ -3,10 +3,10 @@
 }
 
 .site-branding {
-  margin: 0 1.5rem;
+  margin: 0 1.75rem;
 
   .site-logo {
-    width: 2.5rem;
+    width: 3.5rem;
     height: auto;
     display: block;
     transition: transform 0.3s ease;
@@ -21,7 +21,7 @@
     background-color: rgba(5, 58, 76, 0.7);
     box-shadow: $primary-box-shadow;
     color: white;
-    padding: 1rem 0;
+    height: 5.625rem;
     position: relative;
     z-index: 2;
     @include flex-space-between;

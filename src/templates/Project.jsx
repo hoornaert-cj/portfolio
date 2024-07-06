@@ -65,7 +65,7 @@ const Project = () => {
         <Tabs>
           <TabList>
             <Tab>Description</Tab>
-            <Tab>Tools Used</Tab>
+            <Tab>Tools</Tab>
             <Tab>Reflection</Tab>
           </TabList>
 

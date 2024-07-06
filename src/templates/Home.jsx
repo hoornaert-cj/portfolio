@@ -50,7 +50,7 @@ const Home = () => {
   const { acf } = restData;
 
   return (
-    <main id="main" style={{ position: "relative" }}>
+    <main id="main" class="main-home" style={{ position: "relative" }}>
       <div className="home-wrapper">
         <section className="home-content">
           <section className="home-header">

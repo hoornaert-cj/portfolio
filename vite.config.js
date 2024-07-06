@@ -6,10 +6,6 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
 
   return {
-    base: '/portfolio/',
-    build: {
-      outDir: 'portfolio'
-    },
     define: {
       'process.env.SOME_KEY': JSON.stringify(env.SOME_KEY)
     },

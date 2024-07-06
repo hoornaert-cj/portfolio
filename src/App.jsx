@@ -9,8 +9,6 @@ import Footer from './components/Footer';
 import './sass/styles.scss';
 import Logo from './assets/images/Portfolio-Logo_v3.svg';
 
-import { APP_FOLDER_NAME } from './js/globalVariables.js';
-
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -31,38 +29,38 @@ function App() {
   }, [isMenuOpen]);
 
   return (
-    <BrowserRouter basename={`/${APP_FOLDER_NAME}`}>
-    <>
-      <div className="gradient-background"></div>
-      <header id="masthead" className="site-header">
-        <div className="site-branding">
-          <Link to="/" onClick={closeMenu}>
-            <img src={Logo} alt="Portfolio Logo" className="site-logo" />
-          </Link>
-        </div>
-        <button className="menu-toggle" aria-label="Toggle navigation" onClick={toggleMenu}>
-          Menu
-        </button>
-        <nav className={`site-navigation ${isMenuOpen ? 'active' : ''}`}>
-          <ul>
-            <li><NavLink to='/' end onClick={closeMenu}>Home</NavLink></li>
-            <li><NavLink to='/about' onClick={closeMenu}>About</NavLink></li>
-            <li><NavLink to='/projects' onClick={closeMenu}>Projects</NavLink></li>
-            <li><NavLink to='/contact' onClick={closeMenu}>Contact</NavLink></li>
-          </ul>
-        </nav>
-      </header>
-      <main id="main">
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/projects' element={<Projects />} />
-          <Route path='/project/:slug' element={<Project />} />
-          <Route path='/contact' element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <>
+        <div className="gradient-background"></div>
+        <header id="masthead" className="site-header">
+          <div className="site-branding">
+            <Link to="/" onClick={closeMenu}>
+              <img src={Logo} alt="Portfolio Logo" className="site-logo" />
+            </Link>
+          </div>
+          <button className="menu-toggle" aria-label="Toggle navigation" onClick={toggleMenu}>
+            Menu
+          </button>
+          <nav className={`site-navigation ${isMenuOpen ? 'active' : ''}`}>
+            <ul>
+              <li><NavLink to='/' end onClick={closeMenu}>Home</NavLink></li>
+              <li><NavLink to='/about' onClick={closeMenu}>About</NavLink></li>
+              <li><NavLink to='/projects' onClick={closeMenu}>Projects</NavLink></li>
+              <li><NavLink to='/contact' onClick={closeMenu}>Contact</NavLink></li>
+            </ul>
+          </nav>
+        </header>
+        <main id="main">
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/projects' element={<Projects />} />
+            <Route path='/project/:slug' element={<Project />} />
+            <Route path='/contact' element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </>
 
     </BrowserRouter>
   );

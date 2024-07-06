@@ -1,4 +1,3 @@
-// Home.jsx
 import React, { useState, useEffect } from "react";
 import Loading from "../utilities/Loading";
 import { restBase } from "../utilities/Utilities";
@@ -17,7 +16,7 @@ const Home = () => {
         const response = await fetch(restPath);
         if (!response.ok) {
           throw new Error(
-            `Network response was not ok: ${response.statusText}`,
+            `Network response was not ok: ${response.statusText}`
           );
         }
         const data = await response.json();
@@ -54,26 +53,23 @@ const Home = () => {
     <main id="main" style={{ position: "relative" }}>
       <div className="home-wrapper">
         <section className="home-content">
-              <section className="home-header">
-                {restData.acf.home_heading_image && (
-                  <img
-                    src={restData.acf.home_heading_image.url}
-                    alt={restData.acf.home_heading_image.alt}
-                  />
-                )}
-              </section>
-                <section className='home-intro'>
-                  <section className="home-intro-text">
-                <h1>{restData.acf.home_name}</h1>
-                <p>{restData.acf.home_intro}</p>
-                {restData.acf.global_buttons && (
-                  <GlobalButtons buttons={restData.acf.global_buttons} />
-                )}
-                  </section>
-
-                </section>
-
-
+          <section className="home-header">
+            {restData.acf.home_heading_image && (
+              <img
+                src={restData.acf.home_heading_image.url}
+                alt={restData.acf.home_heading_image.alt}
+              />
+            )}
+          </section>
+          <section className="home-intro">
+            <section className="home-intro-text">
+              <h1>{restData.acf.home_name}</h1>
+              <p>{restData.acf.home_intro}</p>
+              {restData.acf.global_buttons && (
+                <GlobalButtons buttons={restData.acf.global_buttons} />
+              )}
+            </section>
+          </section>
         </section>
       </div>
     </main>

@@ -7,7 +7,7 @@ import Project from './templates/Project';
 import Contact from './templates/Contact';
 import Footer from './components/Footer';
 import './sass/styles.scss';
-import Logo from './assets/images/Portfolio-Logo.svg';
+import Logo from './assets/images/Portfolio-Logo_v3.svg';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

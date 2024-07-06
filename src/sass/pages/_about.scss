@@ -1,5 +1,7 @@
-@import '../abstracts/variables';
-@import '../abstracts/mixins';
+body,
+main {
+    min-height: 100dvh;
+}
 
 // Base styles for .about-wrapper
 .about-wrapper {
@@ -9,7 +11,7 @@
 
 .about-content {
   margin-top: 1.5rem;
-  @include calc-min-height;
+  // @include calc-min-height;
 }
 
 .about-intro {
@@ -137,5 +139,51 @@
       font-size: $font-normal-plus-1;
     }
 
+  }
+}
+
+//styling for the skills icons
+.skills-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.skills-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+@include respond-to(small) {
+  .skills-icons {
+      @include grid-icons($columns: 3, $gutter: 1rem);
+      margin: 1rem;
+  }
+}
+
+@include respond-to(medium) {
+  .skills-icons {
+    @include grid-icons($columns: 4, $gutter: 1rem);
+    width: 100%;
+
+    .skills-icon {
+      display: inline-block;
+
+      img {
+        width: 6rem;
+        height: 6rem;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
   }
 }

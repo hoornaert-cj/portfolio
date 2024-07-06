@@ -1,5 +1,5 @@
 // Define color variables
-$primary-color: #053A4C;
+$primary-color: #053a4c;
 $secondary-color: #CCE6F4;
 $hover-color: #31081F;
 $link-color: #fff ;
@@ -50,12 +50,13 @@ $el_center: 0 auto;
 
     //Define Breakpoints
    $breakpoint-small: 48em;
-  $breakpoint-medium: 60em;
+  $breakpoint-medium: 62em;
   $breakpoint-large: 75em;
+  $breakpoint-x-large: 80em;
 
   //Page Footer and Header Heights
   // Define your variables
-$header-height: 4.4863rem;
+$header-height: 5.625rem;
 $footer-height: 10.7869rem;
 
 

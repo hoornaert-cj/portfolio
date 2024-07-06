@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../utilities/Loading";
 import { restBase } from "../utilities/Utilities";
@@ -7,6 +7,7 @@ const Projects = () => {
   const restPath = restBase + "pages/51";
   const [restData, setRestData] = useState([]);
   const [isLoaded, setLoadStatus] = useState(false);
+  const cardsRef = useRef([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,19 +29,51 @@ const Projects = () => {
     fetchData();
   }, [restPath]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardsRef.current) {
+      cardsRef.current.forEach((card) => {
+        if (card) {
+          observer.observe(card);
+        }
+      });
+    }
+
+    return () => {
+      if (cardsRef.current) {
+        cardsRef.current.forEach((card) => {
+          if (card) {
+            observer.unobserve(card);
+          }
+        });
+      }
+    };
+  }, [isLoaded]);
+
   return (
     <>
       {isLoaded ? (
         <section id="introduction" className="projects-wrapper">
           <section className="projects-content">
-              <section className='projects-img'>
+            <section className='projects-img'>
               {restData.acf && restData.acf.projects_heading_image && (
                 <img
                   src={restData.acf.projects_heading_image.url}
                   alt={restData.acf.projects_heading_image.alt}
                 />
               )}
-              </section>
+            </section>
             <section className="projects-intro">
               <section className="projects-intro-text">
                 <h1>{restData.title.rendered}</h1>
@@ -51,7 +84,11 @@ const Projects = () => {
             {restData.acf && restData.acf.project_card && (
               <section className="project-cards">
                 {restData.acf.project_card.map((card, index) => (
-                  <div key={index} className="project-card">
+                  <div
+                    key={index}
+                    className="project-card"
+                    ref={(el) => (cardsRef.current[index] = el)}
+                  >
                     {card.project_image && (
                       <img
                         src={card.project_image.url}
@@ -60,7 +97,6 @@ const Projects = () => {
                     )}
                     <h2>{card.project_title}</h2>
                     <p>{card.project_description}</p>
-                    {/* Modify Link to use project_post_id */}
                     <section className="projects-btn button">
                       <Link to={`/project/${card.project_post_id}`}>
                         Detailed Project Info

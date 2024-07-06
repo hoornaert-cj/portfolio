@@ -1,5 +1,6 @@
 
 .react-tabs {
+  font-family: $font-family-text;
   width: calc(100vw - 2 * $mobile-marg-lr);
   max-width: 37.5rem;
   margin: 0 auto;
@@ -14,12 +15,13 @@
     margin-bottom: 0;
   }
 
+
   .react-tabs__tab {
     width: 5rem;
-    padding: 0.5rem;
+    padding: 0.5rem 1.5rem;
     cursor: pointer;
-    background-color: $secondary-color;
-    color: $primary-color;
+    background: $btn-icon-gradient;
+    color: $p_white-text;
     margin: 0.3rem;
     border: none;
     border-radius: $primary-border-radius;
@@ -27,17 +29,19 @@
     text-align: center;
     margin-bottom: 1rem;
 
+    &:hover {
+      background-color: $primary-color;
+    }
 
     &--selected {
       background-color: $primary-color;
-      color: $p_white-text;
       border-bottom: 2px solid $secondary-color;
       text-decoration: none;
       outline: none;
       border: none;
 
       * {
-        text-decoration: none; // Ensure no underline on inner elements
+        text-decoration: none;
       }
     }
   }

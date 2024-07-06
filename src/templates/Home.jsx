@@ -1,5 +1,5 @@
-// Home.jsx
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import Loading from "../utilities/Loading";
 import { restBase } from "../utilities/Utilities";
 import GlobalButtons from "../components/GlobalButtons";
@@ -17,7 +17,7 @@ const Home = () => {
         const response = await fetch(restPath);
         if (!response.ok) {
           throw new Error(
-            `Network response was not ok: ${response.statusText}`,
+            `Network response was not ok: ${response.statusText}`
           );
         }
         const data = await response.json();
@@ -51,38 +51,47 @@ const Home = () => {
   const { acf } = restData;
 
   return (
-    <main id="main" style={{ position: "relative" }}>
+    <main id="main" className="main-home" style={{ position: "relative" }}>
+      <Helmet>
+        <title>{acf.home_name} - Your Portfolio</title>
+        <meta name="description" content={acf.home_intro} />
+        <meta name="keywords" content="portfolio, web development, projects" />
+        <link rel="canonical" href="https://www.chrishoornaert.com/" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "http://schema.org",
+              "@type": "Person",
+              "name": "${acf.home_name}",
+              "url": "https://www.chrishoornaert.com",
+              "sameAs": [
+                "https://www.linkedin.com/in/christopher-hoornaert/",
+                "https://github.com/hoornaert-cj"
+              ],
+              "jobTitle": "Web Developer/GIS Specialist",
+            }
+          `}
+        </script>
+      </Helmet>
       <div className="home-wrapper">
         <section className="home-content">
-              <section className="home-header">
-                {restData.acf.home_heading_image && (
-                  <img
-                    src={restData.acf.home_heading_image.url}
-                    alt={restData.acf.home_heading_image.alt}
-                  />
-                )}
-              </section>
-                <section className='home-intro'>
-                  <section className="home-intro-text">
-                <h1>{restData.acf.home_name}</h1>
-                <p className>{restData.acf.home_intro}</p>
-                  </section>
-                </section>
-              <section className="home-call-to-action">
-                {restData.acf["home_call-to-action_image_1"] && (
-                  <img
-                    src={restData.acf["home_call-to-action_image_1"].url}
-                    alt={restData.acf["home_call-to-action_image_1"].alt}
-                  />
-                )}
-                <p>{restData.acf["home_call-to-action_text"]}</p>
-                {/* Ensure GlobalButtons and other elements are properly integrated */}
-                {restData.acf.global_buttons && (
-                  <GlobalButtons buttons={restData.acf.global_buttons} />
-                )}
-              </section>
-
-
+          <section className="home-header">
+            {acf.home_heading_image && (
+              <img
+                src={acf.home_heading_image.url}
+                alt={acf.home_heading_image.alt}
+              />
+            )}
+          </section>
+          <section className="home-intro">
+            <section className="home-intro-text">
+              <h1>{acf.home_name}</h1>
+              <p>{acf.home_intro}</p>
+              {acf.global_buttons && (
+                <GlobalButtons buttons={acf.global_buttons} />
+              )}
+            </section>
+          </section>
         </section>
       </div>
     </main>

@@ -1,15 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './sass/styles.scss'
-import { BrowserRouter } from 'react-router-dom'
-
-import { APP_FOLDER_NAME } from './js/globalVariables.js';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './sass/styles.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename={`/${APP_FOLDER_NAME}`}>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-)
+    <App />
+  </React.StrictMode>
+);

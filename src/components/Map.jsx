@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import personalIconUrl from '../assets/images/Personal.png';
 import professionalIconUrl from '../assets/images/Professional.png';
 import educationalIconUrl from '../assets/images/Education.png';
+import '../sass/styles.scss';
 
 // Define icons
 const personalIcon = new L.Icon({
@@ -33,6 +34,7 @@ const educationalIcon = new L.Icon({
 const Map = ({ center, zoom, markers }) => {
     const mapRef = useRef(null);
     const initialViewRef = useRef({ center, zoom });
+    const [buttonText, setButtonText] = useState('Zoom To');
 
     useEffect(() => {
         if (!center || !zoom || !markers) {
@@ -69,9 +71,9 @@ const Map = ({ center, zoom, markers }) => {
             const markerInstance = L.marker([marker.latitude, marker.longitude], { icon })
                 .addTo(map)
                 .bindPopup(`
-                    <b>${marker.description}</b><br>
-                    ${marker.explanation || ''}
-                    <br><button class="zoom-to-btn" data-lat="${marker.latitude}" data-lng="${marker.longitude}">Zoom To</button>
+                    <p class="map-marker-description">${marker.description}</p><br>
+                    <p>${marker.explanation || ''}</p>
+                    <br><button class="button primary zoom-to-btn" data-lat="${marker.latitude}" data-lng="${marker.longitude}">${buttonText}</button>
                 `);
 
             // Attach an event listener when the popup is opened
@@ -84,11 +86,17 @@ const Map = ({ center, zoom, markers }) => {
                         const lat = parseFloat(button.getAttribute('data-lat'));
                         const lng = parseFloat(button.getAttribute('data-lng'));
                         if (mapRef.current) {
-                            mapRef.current.setView([lat, lng], 8);
+                            if (button.textContent === 'Zoom To') {
+                                mapRef.current.setView([lat, lng], 12);
+                                button.textContent = 'Back Home';
+                            } else {
+                                mapRef.current.setView(
+                                    [initialViewRef.current.center.latitude, initialViewRef.current.center.longitude],
+                                    initialViewRef.current.zoom
+                                );
+                                button.textContent = 'Zoom To';
+                            }
                         }
-                        button.textContent = 'Back to Home';
-                        button.classList.remove('zoom-to-btn');
-                        button.classList.add('back-home-btn');
                     });
                 } else {
                     console.error('Button not found in popup content');
@@ -103,36 +111,10 @@ const Map = ({ center, zoom, markers }) => {
                 mapRef.current = null;
             }
         };
-    }, [center, zoom, markers]);
-
-    // Event listener for Back to Home button
-    useEffect(() => {
-        const map = mapRef.current;
-        if (!map) return;
-
-        const handleBackToHome = (e) => {
-            if (e.target.classList.contains('back-home-btn') && mapRef.current) {
-                mapRef.current.setView(
-                    [initialViewRef.current.center.latitude, initialViewRef.current.center.longitude],
-                    initialViewRef.current.zoom
-                );
-                e.target.textContent = 'Zoom To';
-                e.target.classList.remove('back-home-btn');
-                e.target.classList.add('zoom-to-btn');
-            }
-        };
-
-        // Add event listener to document for back-home-btn
-        document.addEventListener('click', handleBackToHome);
-
-        // Cleanup function for event listener
-        return () => {
-            document.removeEventListener('click', handleBackToHome);
-        };
-    }, []);
+    }, [center, zoom, markers, buttonText]);
 
     // Render the map container
-    return <div id="map" style={{ height: '500px', width: '100%' }}></div>;
+    return <div id="map" className="life-map"></div>;
 };
 
 export default Map;

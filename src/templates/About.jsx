@@ -137,10 +137,6 @@ const About = () => {
                         }))}
                     />
                 </section>
-                {/* <section>
-                    <button onClick={() => window.location.href='/projects'}>View Projects</button>
-                    <button onClick={() => window.location.href='/about'}>Learn More About Me</button>
-                </section> */}
             </section>
         </div>
     );

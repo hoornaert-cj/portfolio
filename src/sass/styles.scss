@@ -34,9 +34,7 @@
 //Import _normalize.scss
 @import 'generic/normalize';
 
-// Import layouts
-// @import 'layouts/header';
-// @import 'layouts/footer';
+
 
 // Import page-specific styles
 @import 'pages/home';
@@ -44,4 +42,3 @@
 @import 'pages/projects';
 @import 'pages/project';
 @import 'pages/contact';
-// @import 'pages/skills';

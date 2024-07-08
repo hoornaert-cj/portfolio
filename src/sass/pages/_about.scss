@@ -1,6 +1,6 @@
 body,
 main {
-    min-height: 100dvh;
+  min-height: 100dvh;
 }
 
 // Base styles for .about-wrapper
@@ -25,23 +25,23 @@ main {
 }
 
 .about-img {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.5rem;
+
+  img {
     max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 1.5rem;
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+    height: auto;
+    display: block;
   }
+}
 
-  .about-intro-text {
-    background-color: rgba(204, 230, 244, 0.85);
-    color: $primary-color;
-  }
+.about-intro-text {
+  background-color: rgba(204, 230, 244, 0.85);
+  color: $primary-color;
+}
 
 @include respond-to(small) {
   .about-wrapper {
@@ -71,13 +71,13 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto;
-    grid-gap: 1rem;
+    grid-gap: 1rem; // Ensure there's no gap between grid items
   }
 
   .about-img {
     grid-column: 1 / 4;
     grid-row: 1;
-      width: 100%;
+    width: 100%;
     animation: slideInLeft 1s forwards;
     margin-top: 0;
   }
@@ -94,33 +94,32 @@ main {
     padding: 0;
   }
 
-    .about-intro-text {
-      margin-top: 11.5rem;
-      padding: 1rem;
-      border-radius: $primary-border-radius;
-      box-shadow: $primary-box-shadow;
+  .about-intro-text {
+    margin-top: 11.5rem;
+    padding: 1rem;
+    border-radius: $primary-border-radius;
+    box-shadow: $primary-box-shadow;
 
-      p{
-        margin-bottom: 0;
-      }
+    p {
+      margin-bottom: 0;
     }
+  }
 
   .accordion-section {
     grid-column: 2 / 5;
     grid-row: 2;
     margin: 2.5rem 0;
     opacity: 0;
-    animation: fadeIn 1s forwards 1s
+    animation: fadeIn 1s forwards 1s;
   }
 
   .map-section {
-    grid-column: 2/ 5;
+    grid-column: 2 / 5;
     grid-row: 3;
     opacity: 0;
-    animation: fadeIn 1s forwards 1s
+    animation: fadeIn 1s forwards 1s;
   }
 }
-
 
 .map-section {
   @include text-background;
@@ -131,28 +130,38 @@ main {
 
 @include respond-to(large) {
   .about-intro {
-    grid-column: 3/ 5;
+    grid-column: 3 / 5;
   }
 
   .about-intro-text {
     p {
       font-size: $font-normal-plus-1;
     }
+  }
 
+  .skills-icons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0; // Ensure there's no gap between grid items
+    justify-content: center; // Center the grid horizontally
+    width: 100%; // Ensure the grid container takes the full width
   }
 }
 
-//styling for the skills icons
+// Styling for the skills icons
 .skills-icons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 0; // Ensure there's no gap between grid items
+  justify-content: center; // Center the grid horizontally
+  width: 100%; // Ensure the grid container takes the full width
 }
 
 .skills-icon {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%; // Ensure the icon takes the full height of the grid cell
 
   img {
     width: 5rem;
@@ -162,8 +171,10 @@ main {
 
 @include respond-to(small) {
   .skills-icons {
-      @include grid-icons($columns: 3, $gutter: 1rem);
-      margin: 1rem;
+    @include grid-icons($columns: 3, $gutter: 1rem);
+    margin: 1rem;
+    justify-content: center; // Ensure center alignment in small screens
+    width: 100%; // Ensure the grid container takes the full width
   }
 }
 
@@ -171,13 +182,39 @@ main {
   .skills-icons {
     @include grid-icons($columns: 4, $gutter: 1rem);
     width: 100%;
+    justify-content: center; // Ensure center alignment in medium screens
 
     .skills-icon {
-      display: inline-block;
+      display: flex; // Ensure Flexbox for centering
+      justify-content: center; // Center content horizontally
+      align-items: center; // Center content vertically
 
       img {
         width: 6rem;
         height: 6rem;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}
+
+@include respond-to(large) {
+  .skills-icons {
+    width: 100%;
+    justify-content: center; // Ensure center alignment in large screens
+
+    .skills-icon {
+      display: flex; // Ensure Flexbox for centering
+      justify-content: center; // Center content horizontally
+      align-items: center; // Center content vertically
+
+      img {
+        width: 7rem;
+        height: 7rem;
         transition: transform 0.3s ease;
 
         &:hover {

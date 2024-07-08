@@ -11,7 +11,6 @@ main {
 
 .about-content {
   margin-top: 1.5rem;
-  // @include calc-min-height;
 }
 
 .about-intro {
@@ -71,7 +70,7 @@ main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto;
-    grid-gap: 1rem; // Ensure there's no gap between grid items
+    grid-gap: 1rem;
   }
 
   .about-img {
@@ -142,9 +141,9 @@ main {
   .skills-icons {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 0; // Ensure there's no gap between grid items
-    justify-content: center; // Center the grid horizontally
-    width: 100%; // Ensure the grid container takes the full width
+    gap: 0;
+    justify-content: center;
+    width: 100%;
   }
 }
 
@@ -152,16 +151,16 @@ main {
 .skills-icons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0; // Ensure there's no gap between grid items
-  justify-content: center; // Center the grid horizontally
-  width: 100%; // Ensure the grid container takes the full width
+  gap: 0;
+  justify-content: center;
+  width: 100%;
 }
 
 .skills-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%; // Ensure the icon takes the full height of the grid cell
+  height: 100%;
 
   img {
     width: 5rem;
@@ -172,9 +171,9 @@ main {
 @include respond-to(small) {
   .skills-icons {
     @include grid-icons($columns: 3, $gutter: 1rem);
-    margin: 1rem;
-    justify-content: center; // Ensure center alignment in small screens
-    width: 100%; // Ensure the grid container takes the full width
+    margin: 1.25rem 0;
+    justify-content: center;
+    width: 100%;
   }
 }
 
@@ -182,12 +181,12 @@ main {
   .skills-icons {
     @include grid-icons($columns: 4, $gutter: 1rem);
     width: 100%;
-    justify-content: center; // Ensure center alignment in medium screens
+    justify-content: center;
 
     .skills-icon {
-      display: flex; // Ensure Flexbox for centering
-      justify-content: center; // Center content horizontally
-      align-items: center; // Center content vertically
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       img {
         width: 6rem;
@@ -205,12 +204,12 @@ main {
 @include respond-to(large) {
   .skills-icons {
     width: 100%;
-    justify-content: center; // Ensure center alignment in large screens
+    justify-content: center;
 
     .skills-icon {
-      display: flex; // Ensure Flexbox for centering
-      justify-content: center; // Center content horizontally
-      align-items: center; // Center content vertically
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       img {
         width: 7rem;

@@ -9,7 +9,7 @@ RewriteRule ^(.*)$ https://chrishoornaert.com/$1 [L,R=301]
 RewriteCond %{HTTPS} off
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-# Handle routing for SPA
+# Handle routing for SPA (Single Page Application)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [QSA,L]
+RewriteRule ^ /index.html [L,QSA]

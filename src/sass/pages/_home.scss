@@ -1,7 +1,6 @@
 @import '../abstracts/variables';
 @import '../abstracts/mixins';
 
-
 // Base styles for .home-container
 .home-wrapper {
   margin-left: $mobile-marg-lr;
@@ -32,23 +31,20 @@
 }
 
 .home-intro-text {
-  h1, p {
+  h1,
+  p {
     margin-top: 0;
   }
 }
 
+.global-buttons {
+  display: flex;
+  justify-content: center;
 
-  .global-buttons {
-    display: flex;
-    justify-content: center;
-    // margin: 1rem 0;
-
-    .button {
-      margin: 1rem 0.5rem;
-    }
+  .button {
+    margin: 1rem 0.5rem;
   }
-
-
+}
 
 // Media queries for small screens
 @include respond-to(small) {
@@ -82,7 +78,7 @@
       grid-column: 1 / 4;
       grid-row: 1;
       width: 100%;
-      animation: slideInLeft 1s forwards;
+      animation: slideInLeft 2s forwards;
 
       img {
         width: 100%;
@@ -91,13 +87,15 @@
     }
 
     .home-intro {
-      grid-column: 3 / 5;
-      grid-row: 1;
-      background-color: transparent;
-      box-shadow: none;
+      grid-column: 3 / 5; /* Ensure correct grid placement */
+      grid-row: 1; /* Align with header */
       @include flex-center;
       flex-direction: column;
-      animation: slideInRight 1s forwards;
+      animation: slideInRight 1s ease-in 0.2s forwards; /* Smooth animation */
+      transform: translateX(100%); /* Initial state */
+      opacity: 0; /* Hidden at start */
+      will-change: transform, opacity; /* Optimize rendering */
+      z-index: 2; /* Ensure it appears above other elements */
 
       .home-intro-text {
         background-color: rgba(204, 230, 244, 0.85);
@@ -107,37 +105,36 @@
         box-shadow: $primary-box-shadow;
       }
 
-      home-intro-text {
-        h1 {
-          margin-top: 0;
-        }
+      h1 {
+        margin-top: 0;
       }
     }
-
   }
 }
 
+// Keyframes for animation
 @keyframes slideInLeft {
-  from {
+  0% {
     transform: translateX(-100%);
   }
-  to {
+  100% {
     transform: translateX(0);
   }
 }
 
 @keyframes slideInRight {
-  from {
+  0% {
     transform: translateX(100%);
+    opacity: 0; /* Hidden at start */
   }
-  to {
+  100% {
     transform: translateX(0);
+    opacity: 1; /* Fully visible at end */
   }
 }
 
-
+// Media queries for large screens
 @include respond-to(large) {
-
   .home-content {
     width: 100%;
 
@@ -149,18 +146,32 @@
     }
 
     .home-intro {
-      grid-column: 3/5;
-      grid-row: 1;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      z-index: 99;
-      margin-top: 9rem;
+      grid-column: 3 / 5; /* Ensure correct grid placement */
+      grid-row: 1; /* Align with header */
+      @include flex-center;
+      flex-direction: column;
+      animation: slideInRight 1.25s ease-in 0.2s forwards; /* Smooth animation */
+      transform: translateX(100%); /* Initial state */
+      opacity: 0; /* Hidden at start */
+      will-change: transform, opacity; /* Optimize rendering */
+      z-index: 2; /* Ensure it appears above other elements */
+
+      /* Ensure no background color or shadow */
+      background-color: transparent !important;
+      box-shadow: none !important;
     }
 
+
     .home-intro-text {
-      h1, p {
-        margin: 0;
+      background-color: rgba(204, 230, 244, 0.85); /* Apply background color here */
+      color: $primary-color;
+      padding: 1rem;
+      border-radius: $primary-border-radius;
+      box-shadow: $primary-box-shadow;
+
+      h1,
+      p {
+        margin: 0; /* Adjusted for clean layout */
       }
 
       h1 {
@@ -172,5 +183,6 @@
       }
     }
 
+    }
   }
-}
+

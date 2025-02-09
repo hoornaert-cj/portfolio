@@ -146,15 +146,15 @@
     }
 
     .home-intro {
-      grid-column: 3 / 5; /* Ensure correct grid placement */
-      grid-row: 1; /* Align with header */
+      grid-column: 3 / 5;
+      grid-row: 1;
       @include flex-center;
       flex-direction: column;
-      animation: slideInRight 1.75s ease-in 0.2s forwards; /* Smooth animation */
-      transform: translateX(100%); /* Initial state */
-      opacity: 0; /* Hidden at start */
-      will-change: transform, opacity; /* Optimize rendering */
-      z-index: 2; /* Ensure it appears above other elements */
+      animation: slideInRight 1.75s ease-in 0.2s forwards;
+      transform: translateX(100%);
+      opacity: 0;
+      will-change: transform, opacity;
+      z-index: 2;
 
       /* Ensure no background color or shadow */
       background-color: transparent !important;
@@ -171,7 +171,7 @@
 
       h1,
       p {
-        margin: 0; /* Adjusted for clean layout */
+        margin: 0;
       }
 
       h1 {

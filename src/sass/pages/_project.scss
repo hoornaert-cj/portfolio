@@ -1,8 +1,9 @@
-$background-gradient: linear-gradient(45deg, #cce6f4 0%, #053a4c 100%);
+// $background-gradient: linear-gradient(45deg, #cce6f4 0%, #053a4c 100%);
 
 body,
 main {
   min-height: 100dvh;
+  background-color: $background-color;
 }
 
 .indv-project-wrapper {

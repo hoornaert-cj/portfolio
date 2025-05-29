@@ -55,7 +55,7 @@ html, body {
     flex-direction: column;
     @include text-background;
     margin-bottom: 2.5rem;
-
+    color: $secondary-color;
     h1 {
       margin-bottom: 0;
     }

@@ -33,7 +33,8 @@
 
   //Define the background for text
   @mixin text-background {
-    background-color: rgba(204, 230, 244, 0.90);
+    // background-color: rgba(204, 230, 244, 0.90);
+    background-color: #42033D;
     border-radius: $primary-border-radius;
     box-shadow:   $primary-box-shadow;
     margin: 1rem 0;

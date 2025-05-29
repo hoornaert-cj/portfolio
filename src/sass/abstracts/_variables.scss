@@ -1,14 +1,16 @@
 // Define color variables
-$primary-color: #053a4c;
-$secondary-color: #CCE6F4;
+$primary-color: #42033D;
+$secondary-color: #f7e5f6;
 $hover-color: #31081F;
 $link-color: #fff ;
 $p_white-text: #fff;
 $button-color: rgb(49, 8, 31);
-$background-gradient: linear-gradient(45deg, #cce6f4 0%, #053a4c 100%);
+// $background-gradient: linear-gradient(45deg, #cce6f4 0%, #053a4c 100%);
+// $background-gradient: linear-gradient(45deg,#42033d76, #42033D 100%);
+$background-color: #e8e6e1;
 $btn-icon-gradient: linear-gradient(30deg, #b51e73, #31081f);
 
-$link-font-family: 'Open Sans', sans-serif;
+$link-font-family: 'Urbanist', sans-serif;
 $link-font-size: 1rem;
 $link-font-weight: 400;
 $link-text-decoration: none;
@@ -16,8 +18,8 @@ $link-hover-text-decoration: underline;
 
 
 //Define Fonts
-$font-family-h1: 'Cinzel', serif;
-$font-family-text: 'Open Sans', sans-serif;
+$font-family-h1: 'Fredoka', sans-serif;
+$font-family-text: 'Urbanist', sans-serif;
 
 //Define font sizes
 $font-normal: 1rem;

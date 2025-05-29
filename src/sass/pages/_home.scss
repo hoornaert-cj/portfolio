@@ -87,19 +87,19 @@
     }
 
     .home-intro {
-      grid-column: 3 / 5; /* Ensure correct grid placement */
-      grid-row: 1; /* Align with header */
+      grid-column: 3 / 5;
+      grid-row: 1;
       @include flex-center;
       flex-direction: column;
-      animation: slideInRight 1s ease-in 0.2s forwards; /* Smooth animation */
-      transform: translateX(100%); /* Initial state */
-      opacity: 0; /* Hidden at start */
-      will-change: transform, opacity; /* Optimize rendering */
-      z-index: 2; /* Ensure it appears above other elements */
+      animation: slideInRight 1s ease-in 0.2s forwards;
+      transform: translateX(100%);
+      opacity: 0;
+      will-change: transform, opacity;
+      z-index: 2;
 
       .home-intro-text {
-        background-color: rgba(204, 230, 244, 0.85);
-        color: $primary-color;
+        @include text-background;
+        color: $secondary-color;
         padding: 1rem;
         border-radius: $primary-border-radius;
         box-shadow: $primary-box-shadow;

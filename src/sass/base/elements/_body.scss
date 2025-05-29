@@ -1,5 +1,6 @@
 .gradient-background {
-    background-image: $background-gradient;
+    // background-image: $background-gradient;
+    background-image: $background-color;
     position: fixed;
     top: 0;
     left: 0;
@@ -19,6 +20,7 @@ body {
     margin-right: $mobile-marg-lr;
     display: flex;
     flex-direction: column;
+
 }
 
 .about-wrapper,

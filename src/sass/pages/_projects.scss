@@ -134,11 +134,11 @@
       "button";
     align-items: center;
     justify-items: center;
-    background-color: white;
+    background-color: $primary-color;
     border-radius: $primary-border-radius;
     box-shadow: $primary-box-shadow;
     max-width: 18.75rem;
-    // height: 42.5rem;
+    color: #fff;
     margin-bottom: 1.5rem;
 
     img {
@@ -168,6 +168,10 @@
       align-items: center;
       justify-content: center;
       margin-top: 0.5rem;
+
+      a {
+              color: #000;
+      }
   }
 }
 
@@ -208,6 +212,7 @@
 
         h2 {
             margin-top: 1rem;
+            text-transform: capitalize;
         }
 
         .projects-btn {

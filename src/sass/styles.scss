@@ -3,12 +3,15 @@
 //font imports
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Urbanist:wght@400;600&display=swap');
 
-// @font-face {
-//   font-family: 'Luckiest Guy';
-//   src: url('../fonts/LuckiestGuy/LuckiestGuy-Regular.ttf') format('truetype');
-//   font-weight: normal;
-//   font-style: normal;
-// }
+body {
+  background-color: #e8e6e1;
+  background-image: url('/src/assets/images/TO-Basemap.png'); // adjust path
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; // or `contain` or `auto` if you want it subtle
+  background-blend-mode: lighten; // Optional: helps blend it with the bg color
+  opacity: 0.95; // Optional: tone it down
+}
 
 
 // Import variables and mixins

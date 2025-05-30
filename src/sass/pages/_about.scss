@@ -125,6 +125,7 @@ main {
   @include flex-center;
   flex-direction: column;
   padding: 1rem;
+  color: #fff;
 }
 
 @include respond-to(large) {

@@ -156,6 +156,10 @@ main {
   flex-direction: column;
   margin: 1rem 0;
 
+  h1 {
+    color: $primary-color;
+  }
+
   img {
     @include mobile-img;
     border-radius: $primary-border-radius;

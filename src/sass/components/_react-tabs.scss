@@ -61,13 +61,13 @@
     padding: 0.5rem 1rem;
     margin-top: 1rem;
     background-color: $button-color;
-    color: $p_white-text;
+    // color: $p_white-text;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: darken($button-color, 10%);
+      background-color: darken($button-color, 20%);
 
     }
   }

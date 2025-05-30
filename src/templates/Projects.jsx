@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import Loading from "../utilities/Loading";
 import { restBase } from "../utilities/Utilities";
 
-const Projects = () => {
+  const Projects = () => {
   const restPath = restBase + "pages/51";
   const [restData, setRestData] = useState([]);
   const [isLoaded, setLoadStatus] = useState(false);
   const cardsRef = useRef([]);
+  const cardsSectionRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,7 +80,22 @@ const Projects = () => {
                 <h1>{restData.title.rendered}</h1>
                 <p>{restData.acf.projects_intro}</p>
               </section>
+              <section ref={cardsSectionRef} className="project-cards"></section>
             </section>
+
+<button
+  className="scroll-down-arrow"
+  onClick={() => {
+    const offset = cardsSectionRef.current.offsetTop;
+    window.scrollTo({
+      top: offset + 275,
+      behavior: 'smooth',
+    });
+  }}
+  aria-label="Scroll down to project cards"
+>
+  ↓
+</button>
 
             {restData.acf && restData.acf.project_card && (
               <section className="project-cards">

@@ -42,7 +42,7 @@ const Contact = () => {
               {restData.acf.contact_email && (
                 <p className='contact-email'>
                   <a href={`mailto:${restData.acf.contact_email}`}>
-                    {restData.acf.contact_email}
+                    Email Me
                   </a>
                 </p>
               )}

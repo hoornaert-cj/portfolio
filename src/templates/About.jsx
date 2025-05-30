@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Loading from '../utilities/Loading';
 import { restBase } from '../utilities/Utilities';
 import Map from '../components/Map';
@@ -9,9 +9,10 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const About = () => {
-    const restPath = `${restBase}pages/63?acf_format=standard`;
-    const [restData, setRestData] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
+const restPath = `${restBase}pages/63?acf_format=standard`;
+const [restData, setRestData] = useState(null);
+const [isLoaded, setIsLoaded] = useState(false);
+const factsSectionRef = useRef(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -58,6 +59,23 @@ const About = () => {
                     </section>
                 </section>
 
+                <section className='accordion-section' ref={factsSectionRef}></section>
+
+                <button
+  className="scroll-down-arrow"
+  onClick={() => {
+    const offset = factsSectionRef.current?.offsetTop;
+    if (offset !== undefined) {
+      window.scrollTo({
+        top: offset - 50, // adjust offset as needed
+        behavior: 'smooth',
+      });
+    }
+  }}
+  aria-label="Scroll down to facts section"
+>
+  ↓
+</button>
                 <section className='accordion-section'>
                     <Accordion>
                         <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">

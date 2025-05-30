@@ -224,3 +224,23 @@ main {
     }
   }
 }
+
+.scroll-down-arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  animation: bounce 2s infinite;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+
+  // Hide on smaller screens
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

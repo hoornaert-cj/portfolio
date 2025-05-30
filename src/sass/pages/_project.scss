@@ -3,7 +3,13 @@
 body,
 main {
   min-height: 100dvh;
-  background-color: $background-color;
+  background-color: #e8e6e1;
+  background-image: url('/src/assets/images/TO-Basemap.png'); // adjust path
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; // or contain or auto if you want it subtle
+  background-blend-mode: lighten; // Optional: helps blend it with the bg color
+  opacity: 0.95; // Optional: tone it down
 }
 
 .indv-project-wrapper {

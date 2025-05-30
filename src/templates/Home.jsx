@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet-async';
 import Loading from "../utilities/Loading";
 import { restBase } from "../utilities/Utilities";
 import GlobalButtons from "../components/GlobalButtons";
@@ -53,26 +53,24 @@ const Home = () => {
   return (
     <main id="main" className="main-home" style={{ position: "relative" }}>
       <Helmet>
-        <title>{acf.home_name} - Your Portfolio</title>
-        <meta name="description" content={acf.home_intro} />
-        <meta name="keywords" content="portfolio, web development, projects" />
-        <link rel="canonical" href="https://www.chrishoornaert.com/" />
-        <script type="application/ld+json">
-          {`
-            {
-              "@context": "http://schema.org",
-              "@type": "Person",
-              "name": "${acf.home_name}",
-              "url": "https://www.chrishoornaert.com",
-              "sameAs": [
-                "https://www.linkedin.com/in/christopher-hoornaert/",
-                "https://github.com/hoornaert-cj"
-              ],
-              "jobTitle": "Web Developer/GIS Specialist",
-            }
-          `}
-        </script>
-      </Helmet>
+  <title>{acf.home_name} - Your Portfolio</title>
+  <meta name="description" content={acf.home_intro} />
+  <meta name="keywords" content="portfolio, web development, projects" />
+  <link rel="canonical" href="https://www.chrishoornaert.com/" />
+  {/* <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "http://schema.org",
+      "@type": "Person",
+      name: acf.home_name,
+      url: "https://www.chrishoornaert.com",
+      sameAs: [
+        "https://www.linkedin.com/in/christopher-hoornaert/",
+        "https://github.com/hoornaert-cj"
+      ],
+      jobTitle: "Web Developer/GIS Specialist"
+    })}
+  </script> */}
+</Helmet>
       <div className="home-wrapper">
         <section className="home-content">
           <section className="home-header">

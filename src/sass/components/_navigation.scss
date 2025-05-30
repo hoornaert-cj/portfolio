@@ -13,7 +13,7 @@
 }
 
 .site-logo:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 }
 
@@ -83,14 +83,14 @@
         }
       }
 
-      @media (max-width: 768px) {
+      @media (max-width: 48em) {
         display: none;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: calc(100% - 4rem);
-        // background-image: $background-gradient;
+         background-image: $primary-color;
         z-index: 10;
         padding: 1rem 0;
 

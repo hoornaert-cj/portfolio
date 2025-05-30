@@ -1,7 +1,7 @@
 .footer {
   background-color: $primary-color;
   padding: 1.75rem 0;
-  margin-top: 3rem;
+  // margin-top: 3rem;
   text-align: center;
   color: #fff;
   @include flex-center;
@@ -62,9 +62,9 @@
 }
 
 @include respond-to(medium)  {
-  .footer {
-    margin-top: 2.5rem;
-  }
+  // .footer {
+  //   margin-top: 2.5rem;
+  // }
 
   .social-links {
     margin-right: 4rem;

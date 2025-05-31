@@ -33,9 +33,9 @@ const Contact = () => {
       {isLoaded ? (
         <section id="contact" className="contact-wrapper">
           <section className='contact-content'>
-            <section className='contact-large-logo'>
+            {/* <section className='contact-large-logo'>
               <img src={restData.acf.contact_logo.url} alt={restData.acf.contact_logo.alt} />
-            </section>
+            </section> */}
             <article className="contact-intro">
               <h1>{restData.acf.contact_heading}</h1>
               <div dangerouslySetInnerHTML={{ __html: restData.acf.contact_intro }}></div>

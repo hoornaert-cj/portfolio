@@ -152,9 +152,11 @@ const Project = () => {
           </section>
         )}
 
-        {projectData.acf.global_buttons && (
-          <GlobalButtons buttons={projectData.acf.global_buttons} />
-        )}
+{projectData.acf.global_buttons && (
+  <article className="contact-btn-call-to-action">
+    <GlobalButtons buttons={projectData.acf.global_buttons} />
+  </article>
+)}
       </section>
     </div>
   );

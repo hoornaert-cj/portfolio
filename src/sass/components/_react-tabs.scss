@@ -13,43 +13,42 @@
     max-width: 100%;
     overflow: hidden;
     margin-bottom: 0;
-    background-color: $primary-color;
   }
 
 
   .react-tabs__tab {
-    width: 5rem;
-    padding: 0.5rem 1.5rem;
+    width: 4.5rem;
     cursor: pointer;
     background: $btn-icon-gradient;
     color: #000;
     margin: 0.3rem;
-    border: none;
+    border-color: $primary-color;
+    border-width: 1px;
+    border-style: solid;
     border-radius: $primary-border-radius;
     transition: background-color 0.3s ease;
     text-align: center;
     margin-bottom: 1rem;
 
     &:hover {
-      background-color: $primary-color;
-    }
-
-    &--selected {
-      background-color: $primary-color;
-      border-bottom: 2px solid $secondary-color;
-      text-decoration: none;
-      outline: none;
-      border: none;
-
-      * {
-        text-decoration: none;
-      }
+      background-color: $secondary-color;
     }
   }
 
+.react-tabs__tab.react-tabs__tab--selected {
+  background-color: $primary-color  !important;
+  // border-bottom: 1px solid #000  !important;
+  color: #fff  !important;;
+
+  * {
+    text-decoration: none;
+  }
+}
+
   .react-tabs__tab-panel {
     font-family: $font-family-text;
-    padding: 1rem;
+    font-size: $font-normal-minus-1;
+    padding: 0.75rem;
     border-radius: $primary-border-radius;
     background-color: $primary-color;
     max-width: 100%;
@@ -58,10 +57,10 @@
 
   .button {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     margin-top: 1rem;
+    margin-left: 0.25rem;
     background-color: $button-color;
-    // color: $p_white-text;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;

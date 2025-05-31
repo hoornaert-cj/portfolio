@@ -88,7 +88,7 @@ import { restBase } from "../utilities/Utilities";
   onClick={() => {
     const offset = cardsSectionRef.current.offsetTop;
     window.scrollTo({
-      top: offset + 275,
+      top: offset + 225,
       behavior: 'smooth',
     });
   }}

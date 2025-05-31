@@ -139,6 +139,7 @@ main {
       margin-top: 3.4rem;
     }
 
+
     .global-buttons {
       grid-column: 4 / 7;
       grid-row: 3;
@@ -165,10 +166,6 @@ main {
   }
 }
 
-
-
-
-
 // Media query for screens smaller for styling <Tab> padding and text size
 @media (max-width: 31.25rem) {
   .react-tabs__tab {
@@ -181,8 +178,18 @@ main {
   }
 }
 
-
 @media (min-width: 48em) {
+
+  .react-tabs__tab-panel {
+      p {
+          font-size: $font-normal-plus-1;
+        }
+  }
+
+  .tools-used-repeater {
+    font-size: $font-normal-plus-1;
+  }
+
 .scroll-down-arrow {
   background: $primary-color;
   color: white;

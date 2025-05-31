@@ -7,6 +7,7 @@ main {
 .about-wrapper {
   margin-left: $mobile-marg-lr;
   margin-right: $mobile-marg-lr;
+  margin-bottom: $padding-bottom-mobile;
 }
 
 .about-content {
@@ -39,7 +40,7 @@ main {
 
 .about-intro-text {
   @include text-background;
-  color: $secondary-color;
+  color: #fff;
 }
 
 @include respond-to(small) {

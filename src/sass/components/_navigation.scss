@@ -28,13 +28,13 @@
 
     .menu-toggle {
       display: none;
-      position: absolute;
-      top: 1.25rem;
-      right: 2rem;
+      margin-right: 1.75rem;
+      align-self: center;
       background: none;
       border: none;
       color: white;
       font-size: 1.5rem;
+      font-family: $font-family-h1;
       cursor: pointer;
 
       .site-navigation a {

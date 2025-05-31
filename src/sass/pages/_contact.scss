@@ -58,8 +58,8 @@ html, body {
     @include flex-center;
     flex-direction: column;
     @include text-background;
-    margin-bottom: 2.5rem;
-    color: $secondary-color;
+    margin-bottom: 1.5rem;
+    color: #fff;
     h1 {
       margin-bottom: 0;
     }
@@ -72,6 +72,7 @@ html, body {
     p {
       padding: 0 1rem;
       margin-bottom: 0;
+      font-size: $font-normal-plus-1
     }
 
     img {

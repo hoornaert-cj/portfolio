@@ -78,7 +78,7 @@ const Project = () => {
                       __html: desc.indv_project_description,
                     }}
                   />
-                  <section className='description-repeater-buttons'>
+                  {/* <section className='description-repeater-buttons'>
                     {desc.indv_project_live_link_label &&
                       desc.indv_project_live_link_url && (
                         <a
@@ -101,7 +101,7 @@ const Project = () => {
                           {desc.indv_project_github_label}
                         </a>
                       )}
-                  </section>
+                  </section> */}
                 </div>
               ))}
             </section>

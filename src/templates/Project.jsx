@@ -137,36 +137,6 @@ const Project = () => {
           </TabPanel>
         </Tabs>
 
-        {projectData.acf.description_repeater && (
-  <section className="description-repeater-buttons">
-    {projectData.acf.description_repeater.map((desc, index) => (
-      <React.Fragment key={index}>
-        {desc.indv_project_live_link_label &&
-          desc.indv_project_live_link_url && (
-            <a
-              href={desc.indv_project_live_link_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button"
-            >
-              {desc.indv_project_live_link_label}
-            </a>
-          )}
-        {desc.indv_project_github_label &&
-          desc.indv_project_github_url && (
-            <a
-              href={desc.indv_project_github_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button"
-            >
-              {desc.indv_project_github_label}
-            </a>
-          )}
-      </React.Fragment>
-    ))}
-  </section>
-)}
 
         {isLargeScreen && projectData.acf.small_project_images && (
           <section className="project-gallery">
@@ -183,11 +153,45 @@ const Project = () => {
           </section>
         )}
 
-{projectData.acf.global_buttons && (
-  <article className="contact-btn-call-to-action">
-    <GlobalButtons buttons={projectData.acf.global_buttons} />
-  </article>
+        {projectData.acf.description_repeater && (
+  <div className="description-and-cta">
+    <section className="description-repeater-buttons">
+      {projectData.acf.description_repeater.map((desc, index) => (
+        <React.Fragment key={index}>
+          {desc.indv_project_live_link_label &&
+            desc.indv_project_live_link_url && (
+              <a
+                href={desc.indv_project_live_link_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button"
+              >
+                {desc.indv_project_live_link_label}
+              </a>
+            )}
+          {desc.indv_project_github_label &&
+            desc.indv_project_github_url && (
+              <a
+                href={desc.indv_project_github_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="button"
+              >
+                {desc.indv_project_github_label}
+              </a>
+            )}
+        </React.Fragment>
+      ))}
+    </section>
+
+    {projectData.acf.global_buttons && (
+      <article className="contact-btn-call-to-action">
+        <GlobalButtons buttons={projectData.acf.global_buttons} />
+      </article>
+    )}
+  </div>
 )}
+
       </section>
     </div>
   );

@@ -150,19 +150,25 @@ main {
       .description-and-cta {
   grid-column: 4 / 7;
   grid-row: 3;
-  // margin-top: 3rem;
   @include flex-center;
   flex-direction: column;
-  // gap: 1.25rem;
 }
 
+.project-btn-call-to-action {
+  grid-column: 2 / 3;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
 
-    .global-buttons {
-      grid-column: 4 / 7;
-      grid-row: 3;
-      margin-top: 2rem;
-      @include flex-center;
-    }
+  .button {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.75rem 1.5rem;
+  min-width: 10rem;
+  text-align: center;
+}
+}
+
   }
 }
 

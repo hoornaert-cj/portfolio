@@ -4,6 +4,7 @@ import Home from './templates/Home';
 import About from './templates/About';
 import Projects from './templates/Projects';
 import Project from './templates/Project';
+import Services from './templates/Services';
 import Contact from './templates/Contact';
 import Footer from './components/Footer';
 import './sass/styles.scss';
@@ -46,6 +47,7 @@ function App() {
               <li><NavLink to='/' end onClick={closeMenu}>Home</NavLink></li>
               <li><NavLink to='/about' onClick={closeMenu}>About</NavLink></li>
               <li><NavLink to='/projects' onClick={closeMenu}>Projects</NavLink></li>
+              <li><NavLink to='/services' onClick={closeMenu}>Services</NavLink></li>
               <li><NavLink to='/contact' onClick={closeMenu}>Contact</NavLink></li>
             </ul>
           </nav>
@@ -56,6 +58,7 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/projects' element={<Projects />} />
             <Route path='/project/:slug' element={<Project />} />
+            <Route path='/services' element={<Services />} />
             <Route path='/contact' element={<Contact />} />
           </Routes>
         </main>

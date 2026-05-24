@@ -35,46 +35,61 @@ const Services = () => {
       {isLoaded && restData ? (
         <section id="services" className="services-wrapper">
           <section className="services-content">
+
             <article className="services-intro">
-              <h1>{restData.title.rendered}</h1>
+              {restData.acf?.services_heading && (
+                <h1>{restData.acf.services_heading}</h1>
+              )}
 
-              {restData.content?.rendered && (
-                <div
-                  className="services-page-intro"
-                  dangerouslySetInnerHTML={{ __html: restData.content.rendered }}
-                ></div>
+              {restData.acf?.services_intro && (
+                <p className="services-page-intro">
+                  {restData.acf.services_intro}
+                </p>
               )}
             </article>
 
-{restData.acf?.services_offered_repeater && (
-  <section className="services-list">
-    {restData.acf.services_offered_repeater.map((service, index) => (
-      <article className="service-card" key={index}>
-        {service.services_icon?.url && (
-          <div className="service-icon-wrap">
-            <img
-              className="service-icon"
-              src={service.services_icon.url}
-              alt={service.services_icon.alt || ''}
-            />
-          </div>
-        )}
+            {restData.acf?.services_offered_repeater && (
+              <section className="services-list">
+                {restData.acf.services_offered_repeater.map((service, index) => (
+                  <article className="service-card" key={index}>
+                    {service.services_icon?.url && (
+                      <div className="service-icon-wrap">
+                        <img
+                          className="service-icon"
+                          src={service.services_icon.url}
+                          alt={service.services_icon.alt || ''}
+                        />
+                      </div>
+                    )}
 
-        {service.services_text && (
-          <div className="service-text">
-            {service.services_text}
-          </div>
-        )}
-      </article>
-    ))}
-  </section>
-)}
+                    <div className="service-copy">
+                      {service.services_heading && (
+                        <h2 className="service-heading">
+                          {service.services_heading}
+                        </h2>
+                      )}
 
-            <article className="services-btn-call-to-action">
-              {restData.acf?.global_buttons && (
-                <GlobalButtons buttons={restData.acf.global_buttons} />
-              )}
-            </article>
+                      {service.services_text && (
+                        <p className="service-text">
+                          {service.services_text}
+                        </p>
+                      )}
+                    </div>
+                  </article>
+                ))}
+              </section>
+            )}
+
+            {restData.acf?.services_call_to_action && (
+              <article className="services-call-to-action">
+                <p>{restData.acf.services_call_to_action}</p>
+
+                {restData.acf?.global_buttons && (
+                  <GlobalButtons buttons={restData.acf.global_buttons} />
+                )}
+              </article>
+            )}
+
           </section>
         </section>
       ) : (

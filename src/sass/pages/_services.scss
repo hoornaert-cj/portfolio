@@ -37,39 +37,59 @@
 
 .service-card {
   display: grid;
-  grid-template-columns: 3.5rem 1fr;
+  grid-template-columns: 4rem 1fr;
   align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1rem;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
   border-radius: $primary-border-radius;
   background-color: rgba(255, 255, 255, 0.08);
 }
 
 .service-icon-wrap {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .service-icon {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 3rem;
+  height: 3rem;
   object-fit: contain;
   display: block;
 }
 
-.service-text {
-  color: #fff;
-  font-size: $font-normal;
-  line-height: 1.4;
-
-  p {
-    margin: 0;
-  }
+.service-copy {
+  min-width: 0;
 }
 
-.services-btn-call-to-action {
+.service-heading {
+  margin: 0 0 0.35rem;
+  color: #fff;
+  font-size: 1.4rem;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.service-text {
+  margin: 0;
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.services-call-to-action {
+  @include text-background;
   margin-top: 2rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: #fff;
+
+  p {
+    max-width: 45rem;
+    margin: 0 auto 1.25rem;
+    font-size: $font-normal-plus-1;
+    line-height: 1.45;
+  }
 }
 
 @include respond-to(small) {
@@ -81,6 +101,25 @@
     grid-column: 2 / 5;
     width: 45rem;
     margin: 0 auto;
+  }
+
+  .service-card {
+    grid-template-columns: 3rem 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .service-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .service-heading {
+    font-size: 1.2rem;
+  }
+
+  .service-text {
+    font-size: 0.95rem;
   }
 }
 

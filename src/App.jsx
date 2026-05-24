@@ -8,7 +8,7 @@ import Services from './templates/Services';
 import Contact from './templates/Contact';
 import Footer from './components/Footer';
 import './sass/styles.scss';
-import Logo from './assets/images/Portfolio-Logo_v3.svg';
+import Logo from './assets/images/CH-logo.png';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

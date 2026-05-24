@@ -3,18 +3,27 @@
 }
 
 .site-branding {
-  margin: 0 1.75rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
 
-  .site-logo {
-    width: 8.5rem;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+.site-branding a {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.site-logo {
+  display: block;
+  width: auto;
+  height: 3rem;
+  max-height: 80%;
+  object-fit: contain;
 }
 
 .site-logo:hover {
     transform: scale(1.1);
-}
 }
 
 .site-header {
@@ -24,6 +33,7 @@
     height: 5.625rem;
     position: relative;
     z-index: 2;
+    padding: 0 1rem;
     @include flex-space-between;
 
     .menu-toggle {
@@ -44,13 +54,16 @@
       @media (max-width: 48em) {
         display: block;
 
+        .site-branding {
+          margin-left: 1.5rem;
+        }
+
           .site-logo {
-    width: 8.5rem;
-    padding-left: 1.5rem;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-}
+            width: 2.5rem;
+            height: auto;
+            display: block;
+           transition: transform 0.3s ease;
+          }
       }
     }
 
